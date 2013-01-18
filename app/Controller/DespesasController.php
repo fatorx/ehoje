@@ -6,8 +6,22 @@ App::uses('AppController', 'Controller');
  */
 class DespesasController extends AppController {
 
-    var $uses = array('Receita', 'DespesasFixa', 'DespesasVariavei', 'DespesasExtra', 'CategoriasDespesasFixa', 'CategoriasDespesasVariavei', 'CategoriasDespesasExtra', 'Investimento', 'CategoriasInvestimento');
+    var $uses = array('DespesasFixa', 'Receita',  'DespesasVariavei', 'DespesasExtra', 'CategoriasDespesasFixa', 'CategoriasDespesasVariavei', 'CategoriasDespesasExtra', 'Investimento', 'CategoriasInvestimento');
     
+    
+    public function fixas () {
+        if ( $this->Session->read('user') ) {
+            $this->DespesasFixa->recursive = 1;
+            $this->set( 'despesasFixa', $this->paginate() );
+        } else {
+            $this->redirect('/');
+        }
+    }
+    
+    
+ /**
+  * 
+  */   
     public function relatorio () {
         if ( $this->Session->read('user') ) {
             $this->set('janeiro', array('receita' => $this->obter_receita('01'), 'despesa' => $this->obter_despesa('01','total') ));
@@ -90,10 +104,10 @@ class DespesasController extends AppController {
                 }
                 
                 if ( $despesaGravada ) {
-                    $this->Session->setFlash('Despesa contabiizada com sucesso!', 'default', array( 'class' => 'notification msgsuccess' ));
-                    //$this->redirect('/');
+                    $this->Session->setFlash('<p>Despesa contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess'));
+                    $this->redirect('/');
                 } else {
-                    $this->Session->setFlash('Não foi possível contabilizar a despesa, por favor tente novamente.', 'default', array( 'class' => 'notification msgerror' ));
+                    $this->Session->setFlash('<p>Não foi possível contabilizar a despesa, por favor tente novamente.</p>', 'default', array( 'class' => 'notification msgerror' ));
                     $this->redirect('/');
                 }
             }
@@ -118,10 +132,10 @@ class DespesasController extends AppController {
                 
                 $this->Investimento->create();
                 if ( $this->Investimento->save( $this->request->data ) ) {
-                    $this->Session->setFlash('Investimento cadastrado com sucesso!.', 'default', array( 'class' => 'notification msgsuccess' ));
+                    $this->Session->setFlash('<p>Investimento cadastrado com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess' ));
                     $this->redirect('/');
                 } else {
-                    $this->Session->setFlash('Não foi possível gravar o investimento, por favor tente novamente.', 'default', array( 'class' => 'notification msgerror' ));
+                    $this->Session->setFlash('<p>Não foi possível gravar o investimento, por favor tente novamente.</p>', 'default', array( 'class' => 'notification msgerror' ));
                 }
             }
         } else {
@@ -143,7 +157,7 @@ class DespesasController extends AppController {
         
         $valorFinal = 0;
         
-        $result = $this->Receita->query("select sum(Receita.valor) as total from receitas Receita where Receita.data between '$dataInicial' and '$dataFinal'");
+        $result = $this->Receita->query("select sum(Receita.valor) as total from receitas Receita where Receita.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
         $valorFinal = (int) $result['0']['0']['total'];
         return $valorFinal;
     }   
@@ -163,28 +177,28 @@ class DespesasController extends AppController {
         $valorFinal = 0;
         $arrayFinal = Array();
        
-        $despesasFixas = $this->DespesasFixa->query("select sum(Despesa.valor) as total from despesas_fixas Despesa where Despesa.data between '$dataInicial' and '$dataFinal'");
+        $despesasFixas = $this->DespesasFixa->query("select sum(Despesa.valor) as total from despesas_fixas Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
         $despesasFixas = $despesasFixas['0']['0']['total'];
         if ( $despesasFixas != null ) {
             $valorFinal += $despesasFixas;
             $arrayFinal[] = $despesasFixas;
         }
         
-        $despesasVariaveis = $this->DespesasVariavei->query("select sum(Despesa.valor) as total from despesas_variaveis Despesa where Despesa.data between '$dataInicial' and '$dataFinal'");
+        $despesasVariaveis = $this->DespesasVariavei->query("select sum(Despesa.valor) as total from despesas_variaveis Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
         $despesasVariaveis = $despesasVariaveis['0']['0']['total'];
         if ( $despesasVariaveis != null ) {
             $valorFinal += $despesasVariaveis;
             $arrayFinal[] = $despesasVariaveis;
         }
         
-        $despesasExtras = $this->DespesasExtra->query("select sum(Despesa.valor) as total from despesas_extras Despesa where Despesa.data between '$dataInicial' and '$dataFinal'");
+        $despesasExtras = $this->DespesasExtra->query("select sum(Despesa.valor) as total from despesas_extras Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
         $despesasExtras = $despesasExtras['0']['0']['total'];
         if ( $despesasExtras != null ) {
             $valorFinal += $despesasExtras;
             $arrayFinal[] = $despesasExtras;
         }
         
-        $investimentos = $this->Investimento->query("select sum(Despesa.valor) as total from investimentos Despesa where Despesa.data between '$dataInicial' and '$dataFinal'");
+        $investimentos = $this->Investimento->query("select sum(Despesa.valor) as total from investimentos Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
         $investimentos = $investimentos['0']['0']['total'];
         if ( $investimentos != null ) {
             $valorFinal += $investimentos;

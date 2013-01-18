@@ -3,17 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SFP - Sistema de finanças pessoais</title>
+<title>SFP - Sistema de Finanças Pessoais</title>
 
 <?php 
 
                 echo $this->Html->css('ie7');
                 echo $this->Html->css('ie8');
                 echo $this->Html->css('style');
-                //echo $this->Html->css('style.darkblue');
-                //echo $this->Html->css('style.gray');
-
-
+                
                 echo $this->Html->script('plugins/jquery-1.7.min');
                 echo $this->Html->script('plugins/jquery-ui-1.8.16.custom.min');
                 echo $this->Html->script('plugins/jquery.flot.min');
@@ -26,8 +23,7 @@
                 echo $this->Html->script('custom/form');
                 echo $this->Html->script('jquery-functions');
                 
-                echo $this->Html->script('google-chart');
-                
+                echo $this->Html->script('https://www.google.com/jsapi');
                 
                 echo $this->fetch('meta');
                 echo $this->fetch('css');
@@ -48,7 +44,7 @@
 	<div class="header radius3">
     	<div class="headerinner">
             <a href="">
-                <?php echo $this->Html->image('starlight_admin_template_logo_small.png'); ?>
+                <?php echo $this->Html->image('logo.png'); ?>
             </a>
             <div class="headright">
             
@@ -85,16 +81,6 @@
         </div><!--headerinner-->
 	</div><!--header-->
     <!-- END OF HEADER -->
-    
-    <?php 
-  
-	    $current_propostas = strpos( $_SERVER['REQUEST_URI'] , '/propostas' ) !== false ? 'current' : '';
-	    $current_usuarios = strpos( $_SERVER['REQUEST_URI'] , '/admin/usuarios' ) !== false ? 'current' : '';
-	    $current_cursos = strpos( $_SERVER['REQUEST_URI'] , '/admin/faculdades' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/admin/cursos' ) !== false ? 'current' : '';
-	    $current_relatorios = strpos( $_SERVER['REQUEST_URI'] , '/admin/relatorios' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/admin/relatorios' ) !== false ? 'current' : '';
-            $current_concorrentes = strpos( $_SERVER['REQUEST_URI'] , '/admin/concorrentes' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/admin/novo_concorrente' ) !== false ? 'current' : '';
-	    
-    ?>
         
     <!-- START OF MAIN CONTENT -->
     <div class="mainwrapper">
@@ -172,6 +158,6 @@
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>         
     <?php } ?>            
-	<?php //echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
