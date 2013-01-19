@@ -1,4 +1,4 @@
-SFP
+SFP - Sistema de Finanças Pessoais
 =======
 
   Sistema de Finanças Pessoais é um sistema que automatiza a planilha de finanças pessoais da BM&F Bovespa [http://www.bmfbovespa.com.br/pt-br/educacional/iniciantes/mercado-de-acoes/planilha-de-orcamento-pessoal/planilha-de-orcamento-pessoal.aspx?idioma=pt-br] 
@@ -32,12 +32,14 @@ Instalação
       Linux (Ubuntu, Debian) - logado como root digite apt-get install apache php5 mysql-server-5.5 phpmyadmin
     
     
+  - Criar um banco de dados chamado "financas"
+  
   - Rodar o script de criação e população dos dados iniciais do sistema (que encontram-se na pasta doc), geralmente utilizando o phpmyadmin fornecido juntamente com os softwares já instalados anteriormente
   
   - Editar o arquivo app/Config/database.php onde há "public $default = array ..." setar os valores de login e senha de sua banco de dados
 
     
-    Após a instalação basta digitar http://localhost/financas em seu navegador e realizar o login, que por padrão vem configurado com email: admin  e senha: admin. Pronto!
+    Após a instalação basta digitar [http://localhost/financas/src] em seu navegador e realizar o login, que por padrão vem configurado com email: admin  e senha: admin. Pronto!
     Basta começar marcar suas despesas e receitas e acompanhar sua evolução.
     O sistema não possui manual porque é autoexplicativo. Muito fácil de usar!
 
