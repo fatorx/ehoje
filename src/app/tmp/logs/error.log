@@ -1035,3 +1035,18 @@
 2013-01-18 21:37:55 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 /var/www/desenvolvimento/financas/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-19 00:39:17 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 00:40:12 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 00:40:19 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 00:40:19 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 00:41:50 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
