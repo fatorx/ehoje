@@ -146,7 +146,7 @@ class UsuariosController extends AppController {
    */      
         public function logout () {
             $this->Session->delete('user');
-            $this->Session->setFlash('Sessão finalizada com sucesso.', 'default', array('class' => 'notification msgsuccess', 'before' => '<p>', 'after' => '</p>'));
+            $this->Session->setFlash('<p>Sessão finalizada com sucesso.</p>', 'default', array('class' => 'notification msgsuccess'));
             $this->redirect('/');
         }
         
@@ -165,11 +165,11 @@ class UsuariosController extends AppController {
                     if ( $this->Usuario->save($this->request->data) ) {
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
                         if ( $this->inicia_sessao($this->request->data['Usuario']) ) {
-                            $this->Session->setFlash('Cadastro realizado com sucesso!', 'default', array('class' => 'notification msgsuccess', 'before' => '<p>', 'after' => '</p>'));
+                            $this->Session->setFlash('<p>Cadastro realizado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
                             $this->redirect('/');
                         }
                     } else {
-                        $this->Session->setFlash('Não foi possível realizar seu cadastro, por favor tente novamente!', 'default', array('class' => 'notification msgerror', 'before' => '<p>', 'after' => '</p>'));
+                        $this->Session->setFlash('<p>Não foi possível realizar seu cadastro, por favor tente novamente!</p>', 'default', array('class' => 'notification msgerror'));
                     }
                 }
             } else {
