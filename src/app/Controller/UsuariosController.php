@@ -161,6 +161,14 @@ class UsuariosController extends AppController {
                     $this->request->data['Usuario']['senha'] = md5($this->request->data['Usuario']['senha']);
                     
                     $this->Usuario->create();
+                    
+                    if ( $this->request->data['Usuario']['avatar'] ) {
+                        if (move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ) {
+                            $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
+                        }
+                    } else {
+                        $this->Usuario->data['Usuario']['avatar'] = '';
+                    }
                     if ( $this->Usuario->save($this->request->data) ) {
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
                         if ( $this->inicia_sessao($this->request->data['Usuario']) ) {

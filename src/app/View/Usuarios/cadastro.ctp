@@ -10,7 +10,7 @@
                     
 <br />
                     
-<?php echo $this->Form->create('Usuario', array('class' => 'stdform', 'onsubmit' => 'return validaNewUser();')); ?>
+<?php echo $this->Form->create('Usuario', array('class' => 'stdform', 'enctype' => 'multipart/form-data', 'onsubmit' => 'return validaNewUser();')); ?>
 
     <p>
        <?php echo $this->Form->input('nome', array('label' => 'Nome <font color="red">*</font>', 'maxlength' => 255, 'class' => 'smallinput')); ?>
@@ -26,6 +26,10 @@
     
     <p>
         <?php echo $this->Form->input('verifica_senha', array('type' => 'password', 'label' => 'Repita a senha <font color="red">*</font>',  'class' => 'smallinput')); ?>
+    </p>
+
+    <p>
+        <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem',  'class' => 'smallinput')); ?>
     </p>
 
     <p class="stdformbutton">

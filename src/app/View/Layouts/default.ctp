@@ -65,8 +65,15 @@
                 
                 <div id="userPanel" class="headercolumn">
                     <a href="" class="userinfo radius2">
-                        <?php echo $this->Html->image('avatar.png', array('class' => 'radius2')); ?>
                         <?php $user = $this->Session->read( 'user.nome' ); ?>
+                        <?php $email = $this->Session->read('user.email'); ?>
+                        <?php  
+                            if (file_exists('img/users/'.$user.'.jpg') ) {
+                                echo $this->Html->image('users/'.$user.'.jpg', array('class' => 'radius2', 'width' => '25px', 'height' => '25px'));
+                            } else {
+                                echo $this->Html->image('avatar.png', array('class' => 'radius2'));
+                            }
+                        ?>     
                         <span><strong><?php echo $user ?></strong></span>
                     </a>
                     <div class="userdrop">
