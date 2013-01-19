@@ -162,13 +162,20 @@ class UsuariosController extends AppController {
                     
                     $this->Usuario->create();
                     
-                    if ( $this->request->data['Usuario']['avatar'] ) {
+                    $tipoPermitidos = array('image/jpeg','image/png');
+                    if ( $this->request->data['Usuario']['avatar'] && $this->request->data['Usuario']['avatar']['type'] == 'image/png' || $this->request->data['Usuario']['avatar']['type'] == 'image/jpeg' ) {
                         if (move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ) {
                             $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                         }
+                    } else if ( $this->request->data['Usuario']['avatar']['type'] != 'image/png' && $this->request->data['Usuario']['avatar']['type'] != 'image/jpeg' ){
+                        $this->Session->setFlash('<p>Não foi possível realizar o upload da imagem. Tipo de arquivo não suportado. Tipos permitidos: jpeg e png. Enviado: '.@$this->request->data['Usuario']['avatar']['type'].'</p>', 
+                                                            'default', array('class' => 'notification msgerror'));
+                        $this->Usuario->data['Usuario']['avatar'] = '';
                     } else {
                         $this->Usuario->data['Usuario']['avatar'] = '';
                     }
+                   
+                    
                     if ( $this->Usuario->save($this->request->data) ) {
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
                         if ( $this->inicia_sessao($this->request->data['Usuario']) ) {
