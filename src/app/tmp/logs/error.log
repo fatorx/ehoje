@@ -1137,3 +1137,41 @@
 2013-01-19 14:44:39 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-19 15:22:22 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:22:26 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:22:26 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:22:48 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:22:52 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:22:52 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:23:04 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:24:41 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:24:45 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:24:48 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-19 15:27:38 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/desenvolvimento/financas/src/app/View/Despesas/relatorio.ctp, line 76]
+2013-01-19 15:27:38 Error: [FatalErrorException] syntax error, unexpected ';'
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/desenv...', 76)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/desenv...', 76, Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/desenv...', 76, Array)
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

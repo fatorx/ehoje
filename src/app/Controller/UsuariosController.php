@@ -158,7 +158,6 @@ class UsuariosController extends AppController {
         public function cadastro () {
             if ( !$this->Session->read('user') ) {
                 if ( $this->request->is('post') ) {
-                    debug($this->request->data);
                     $this->request->data['Usuario']['senha'] = md5($this->request->data['Usuario']['senha']);
                     
                     $this->Usuario->create();

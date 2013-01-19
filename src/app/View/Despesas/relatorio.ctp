@@ -72,19 +72,19 @@
             function drawChartVendas() {
 
                 var dataVendas = google.visualization.arrayToDataTable([
-                  ['Gastos','Receitas','Despesas'],
-                  ['Jan', <?php echo $janeiro['receita']; ?>, <?php echo $janeiro['despesa']; ?> ],
-                  ['Fev', <?php echo $fevereiro['receita']; ?>, <?php echo $fevereiro['despesa']; ?>],
-                  ['Mar', <?php echo $marco['receita']; ?>, <?php echo $marco['despesa']; ?>],
-                  ['Abr', <?php echo $abril['receita']; ?>, <?php echo $abril['despesa']; ?>],
-                  ['Mai', <?php echo $maio['receita']; ?>, <?php echo $maio['despesa']; ?>],
-                  ['Jun', <?php echo $junho['receita']; ?>, <?php echo $junho['despesa']; ?>],
-                  ['Jul', <?php echo $julho['receita']; ?>, <?php echo $julho['despesa']; ?>],
-                  ['Ago', <?php echo $agosto['receita']; ?>, <?php echo $agosto['despesa']; ?>],
-                  ['Set', <?php echo $setembro['receita']; ?>, <?php echo $setembro['despesa']; ?>],
-                  ['Out', <?php echo $outubro['receita']; ?>, <?php echo $outubro['despesa']; ?>],
-                  ['Nov', <?php echo $novembro['receita']; ?>, <?php echo $novembro['despesa']; ?>],
-                  ['Dez', <?php echo $dezembro['receita']; ?>, <?php echo $dezembro['despesa']; ?>],
+                  ['Gastos','Receitas','Despesas','Saldo'],
+                  ['Jan', <?php echo $janeiro['receita']; ?>, <?php echo $janeiro['despesa']; ?>, <?php echo ($janeiro['receita'] - $janeiro['despesa']); ?>],
+                  ['Fev', <?php echo $fevereiro['receita']; ?>, <?php echo $fevereiro['despesa']; ?>,<?php echo ($fevereiro['receita'] - $fevereiro['despesa']); ?>],
+                  ['Mar', <?php echo $marco['receita']; ?>, <?php echo $marco['despesa']; ?>,<?php echo ($marco['receita'] - $marco['despesa']); ?>],
+                  ['Abr', <?php echo $abril['receita']; ?>, <?php echo $abril['despesa']; ?>,<?php echo ($abril['receita'] - $abril['despesa']); ?>],
+                  ['Mai', <?php echo $maio['receita']; ?>, <?php echo $maio['despesa']; ?>,<?php echo ($maio['receita'] - $maio['despesa']); ?>],
+                  ['Jun', <?php echo $junho['receita']; ?>, <?php echo $junho['despesa']; ?>,<?php echo ($junho['receita'] - $junho['despesa']); ?>],
+                  ['Jul', <?php echo $julho['receita']; ?>, <?php echo $julho['despesa']; ?>,<?php echo ($julho['receita'] - $julho['despesa']); ?>],
+                  ['Ago', <?php echo $agosto['receita']; ?>, <?php echo $agosto['despesa']; ?>,<?php echo ($agosto['receita'] - $agosto['despesa']); ?>],
+                  ['Set', <?php echo $setembro['receita']; ?>, <?php echo $setembro['despesa']; ?>,<?php echo ($setembro['receita'] - $setembro['despesa']); ?>],
+                  ['Out', <?php echo $outubro['receita']; ?>, <?php echo $outubro['despesa']; ?>,<?php echo ($outubro['receita'] - $outubro['despesa']); ?>],
+                  ['Nov', <?php echo $novembro['receita']; ?>, <?php echo $novembro['despesa']; ?>,<?php echo ($novembro['receita'] - $novembro['despesa']); ?>],
+                  ['Dez', <?php echo $dezembro['receita']; ?>, <?php echo $dezembro['despesa']; ?>,<?php echo ($dezembro['receita'] - $dezembro['despesa']); ?>],
                 ]);
 
                 var options = {};

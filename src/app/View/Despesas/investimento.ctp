@@ -1,5 +1,5 @@
 <div class="contenttitle">
-    <h2 class="form"><span>Informe os dados abaixo</span></h2>
+    <h2 class="form"><span>Informe os dados do investimento</span></h2>
 </div><!--contenttitle-->
                     
 <br />
@@ -23,7 +23,7 @@
     </p>
 
     <p class="stdformbutton">
-            <button class="submit radius2">Registrar despesa</button>
+            <button class="submit radius2">Registrar investimento</button>
     </p>
 
 <?php echo $this->Form->end(); ?>  
