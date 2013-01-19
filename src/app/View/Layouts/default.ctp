@@ -71,7 +71,6 @@
                     </a>
                     <div class="userdrop">
                         <ul>
-                            <li><?php echo $this->Html->link( 'Configurações', '/configuracoes/'); ?></li>
                             <li><?php echo $this->Html->link( 'Sair', '/usuarios/logout'); ?></li>
                         </ul>
                     </div><!--userdrop-->

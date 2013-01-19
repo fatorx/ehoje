@@ -1,39 +1,60 @@
-CakePHP
+SFP
 =======
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+  Sistema de Finanças Pessoais é um sistema que automatiza a planilha de finanças pessoais da BM&F Bovespa [http://www.bmfbovespa.com.br/pt-br/educacional/iniciantes/mercado-de-acoes/planilha-de-orcamento-pessoal/planilha-de-orcamento-pessoal.aspx?idioma=pt-br] 
+que é indicada para quem deseja organizar suas despesas afim de um melhor uso de seu dinheiro.
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+  A planilha original da BM&F Bovespa encontra-se na pasta doc/  note que o que foi feito no sistema foi apenas deixar um pouco mais intuitivo o processo de organização de suas finanças pessoais.
 
-Some Handy Links
+
+
+Requisitos
 ----------------
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
+  - Windows (XP, Vista, 7), Linux, MacOSX
+  - Processador 1.0 GHz
+  - RAM 512 Mb
+  - HD 1 Gb
+  - Apache 2.2.*
+  - PHP 5.3.*
+  - Banco de dados Mysql >5.1
 
-[Cookbook](http://book.cakephp.org) - THE Cake user documentation; start learning here!
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
 
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
+Instalação
+----------------
 
-[API](http://api.cakephp.org) - A reference to Cake's classes
+  Para instalar o SFP você precisa seguir os passos abaixo:
 
-[CakePHP TV](http://tv.cakephp.org) - Screen casts from events and video tutorials
+  - Instalação do apache com suporte ao PHP e Mysql
+      Windows - [http://www.forumweb.com.br/artigo/221/php/instalando-o-xampp-no-windows]
+      MacOSX - [http://www.profissionaisti.com.br/2012/04/instalando-apache-php-mysql-no-mac-os-com-mamp/]
+      Linux (Ubuntu, Debian) - logado como root digite apt-get install apache php5 mysql-server-5.5 phpmyadmin
+    
+    
+  - Rodar o script de criação e população dos dados iniciais do sistema (que encontram-se na pasta doc), geralmente utilizando o phpmyadmin fornecido juntamente com os softwares já instalados anteriormente
+  
+  - Editar o arquivo app/Config/database.php onde há "public $default = array ..." setar os valores de login e senha de sua banco de dados
 
-[The Cake Software Foundation](http://cakefoundation.org/) - promoting development related to CakePHP
+    
+    Após a instalação basta digitar http://localhost/financas em seu navegador e realizar o login, que por padrão vem configurado com email: admin  e senha: admin. Pronto!
+    Basta começar marcar suas despesas e receitas e acompanhar sua evolução.
+    O sistema não possui manual porque é autoexplicativo. Muito fácil de usar!
 
-Get Support!
+
+
+Suporte
 ------------
 
-[Our Google Group](http://groups.google.com/group/cake-php) - community mailing list and forum
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake.
-
-[Q & A](http://ask.cakephp.org/) - Ask questions here, all questions welcome
-
-[Lighthouse](http://cakephp.lighthouseapp.com/) - Got issues? Please tell us!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+  Por se tratar de um sistema simples e não customizável, de momento, não fornecemos suporte.
+  
+  Caso você seja um usuário final e não domine as técnicas de instalação dos softwares acima citados mas deseja utilizar o sistema para acompanhar seu progresso enquanto organiza sua vida financeira
+  entre em contato comigo que eu instalo o sistema e realizo as configurações necessárias. Basta enviar um email para <andrecardosodev@gmail.com> que negociaremos a instalação, não se preocupe, cobro somente
+  um valorzinho simbólico. A finalidade deste sistema não é fazer dinheiro, apenas cobrarei a instalação pelo fato de levar um bom tempo para esta configuração, e como todos sabem tempo é dinheiro.
+  
+  
+  
+  
+  Atenciosamente Andre Cardoso.
+  
+  
