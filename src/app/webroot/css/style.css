@@ -84,8 +84,8 @@ button,input,select,textarea { font-size: 12px; font-family: Arial, Helvetica, s
 .loginheader { height: 60px; }
 .loginform { margin-top: 20px; }
 
-.loginbox h1 { font-size: 30px; letter-spacing: 1px; color: #555; font-weight: normal; padding-top: 10px; }
-.loginbox .logo { position: absolute; top: 20px; right: 20px; }
+.loginbox h1 { font-size: 30px; letter-spacing: 1px; color: #555; font-weight: normal; padding-top: 45px; padding-left: 85px; }
+.loginbox .logo { position: absolute; top: 20px; right: 70px; }
 .loginbox p { margin: 10px 0 15px 0; }
 .loginbox label { display: block; color: #ccc; letter-spacing: 1px; font-size: 18px; }
 .loginbox input { 

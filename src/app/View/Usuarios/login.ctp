@@ -2,8 +2,11 @@
 	<div class="loginboxinner radius3">
     	<div class="loginheader">
             <h1 class="bebas">Realize seu login</h1>
-            <div class="logo"></div>
+            <div class="logo">
+                <?php echo $this->Html->image('logo.png'); ?>
+            </div>
     	</div><!--loginheader-->
+        
         
         <div class="loginform">
             <div class="loginerror" <?php if ( @$erroLogin ) echo "style='display:block;'"; ?>><p>Dados de login inválidos, por favor verifique!</p></div>
