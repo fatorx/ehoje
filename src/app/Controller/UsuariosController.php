@@ -146,8 +146,35 @@ class UsuariosController extends AppController {
    */      
         public function logout () {
             $this->Session->delete('user');
-            $this->Session->setFlash('Sessão finalizada com sucesso.', 'default', array('class' => 'success'));
+            $this->Session->setFlash('Sessão finalizada com sucesso.', 'default', array('class' => 'notification msgsuccess', 'before' => '<p>', 'after' => '</p>'));
             $this->redirect('/');
+        }
+        
+   
+ /**
+  * cadastro method
+  * 
+  */      
+        public function cadastro () {
+            if ( !$this->Session->read('user') ) {
+                if ( $this->request->is('post') ) {
+                    debug($this->request->data);
+                    $this->request->data['Usuario']['senha'] = md5($this->request->data['Usuario']['senha']);
+                    
+                    $this->Usuario->create();
+                    if ( $this->Usuario->save($this->request->data) ) {
+                        $this->request->data['Usuario']['id'] = $this->Usuario->id;
+                        if ( $this->inicia_sessao($this->request->data['Usuario']) ) {
+                            $this->Session->setFlash('Cadastro realizado com sucesso!', 'default', array('class' => 'notification msgsuccess', 'before' => '<p>', 'after' => '</p>'));
+                            $this->redirect('/');
+                        }
+                    } else {
+                        $this->Session->setFlash('Não foi possível realizar seu cadastro, por favor tente novamente!', 'default', array('class' => 'notification msgerror', 'before' => '<p>', 'after' => '</p>'));
+                    }
+                }
+            } else {
+                $this->redirect('/');
+            }
         }
        
 }

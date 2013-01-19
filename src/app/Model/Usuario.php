@@ -15,25 +15,25 @@ class Usuario extends AppModel {
 		'nome' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Por favor informe seu nome',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'email' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Por favor informe seu email',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
+				'message' => 'Email inválido',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -43,11 +43,21 @@ class Usuario extends AppModel {
 		'senha' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Por favor informe a senha desejada',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+                'verifica_senha' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Por favor repita a senha',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);

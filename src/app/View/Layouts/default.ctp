@@ -31,7 +31,7 @@
 
 ?>
 </head>
-<?php if ( $this->Session->read('user') ) { ?>
+<?php if ( $this->Session->read('user')  || strpos( $_SERVER['REQUEST_URI'] , '/usuarios/cadastro' ) !== false ){ ?>
     <body class="loggedin">
 <?php        
 } else { ?>
@@ -44,8 +44,8 @@
 	<div class="header radius3">
     	<div class="headerinner">
             <a href="">
-                <?php echo $this->Html->image('logo.png'); ?>
-            </a>
+                <?php echo $this->Html->image('logo.png'); ?> 
+            </a>&nbsp; v0.1.1
             <div class="headright">
             
             <div id="notiPanel" class="headercolumn" style="display:none;">

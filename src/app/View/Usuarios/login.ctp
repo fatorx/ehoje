@@ -21,6 +21,9 @@
                     <button class="radius3 bebas">Entrar</button>
                     <?php echo $this->Form->end(); ?>
             </p>
+            <p>
+                <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>
+            </p>
         </div><!--loginform-->
     </div><!--loginboxinner-->
 </div><!--loginbox-->
