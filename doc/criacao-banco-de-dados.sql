@@ -275,6 +275,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` TEXT COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
