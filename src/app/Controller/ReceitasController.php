@@ -25,6 +25,7 @@ class ReceitasController extends AppController {
                         $this->request->data['Receita']['id_usuario'] = $this->Session->read('user.id');
                        
 			$this->Receita->create();
+
 			if ($this->Receita->save($this->request->data)) {
 				$this->Session->setFlash('<p>Receita contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess' ));
                                 $this->redirect('/');

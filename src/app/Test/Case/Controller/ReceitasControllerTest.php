@@ -13,13 +13,18 @@ class ReceitasControllerTest extends ControllerTestCase {
     }
 
     
+    /**
+ * 
+ */
+	public function testLogout() {
+		$this->testAction('usuarios/logout');
+	}
+    
  /**
   * testAddNotLoggedIn method
   */       
-	public function testAddNotLoggedIn() {
+	public function AddNotLoggedIn() {
 		$inicio = $this->Receita->find('count');
-		
-		$this->logout();
 		
 		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00'));
 		$this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
@@ -28,34 +33,26 @@ class ReceitasControllerTest extends ControllerTestCase {
 		$this->assertEqual($fim, $inicio);
 	}
 	
+        
+  /**
+   * 
+   */      
+        public function testLogin() {
+            $this->testAction('/', array('method' => 'post', 'data' => array('Usuario' => array('email' => 'andrecardosodev@gmail.com', 'senha' => 'andre'))));
+        }
+        
 	
+ /**
+  * 
+  */       
 	public function testAddLoggedIn() {
-		$inicio = $this->Receita->find('count');
-		
-		$this->login();
-		
-		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
-		$this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
-		
-		$fim = $this->Receita->find('count');
-		$this->assertEqual($fim, $inicio + 1);
-	}
+            $inicio = $this->Receita->find('count');
 
+            $data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
+            $this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
 
-/**
- * 
- */	
-	public function login() {
-		$data = array('Usuario' => array('email' => 'andrecardosodev@gmail.com', 'senha' => 'andre'));
-		$this->testAction('/', array('method' => 'post', 'data' => $data) );
-	}
-
-
-/**
- * 
- */
-	public function logout() {
-		$this->testAction('usuarios/logout');
+            $fim = $this->Receita->find('count');
+            $this->assertEqual($inicio + 1, $fim);
 	}
 
 }
