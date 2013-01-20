@@ -7,53 +7,55 @@ App::uses('ReceitasController', 'Controller');
  */
 class ReceitasControllerTest extends ControllerTestCase {
 
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array(
-		'app.receita'
-	);
+    public function setUp() {
+        parent::setUp();
+        $this->Receita = ClassRegistry::init('Receitas');
+    }
 
-/**
- * testIndex method
- *
- * @return void
- */
-	public function testIndex() {
+    
+ /**
+  * testAddNotLoggedIn method
+  */       
+	public function testAddNotLoggedIn() {
+		$inicio = $this->Receita->find('count');
+		
+		$this->logout();
+		
+		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00'));
+		$this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
+		
+		$fim = $this->Receita->find('count');
+		$this->assertEqual($fim, $inicio);
+	}
+	
+	
+	public function testAddLoggedIn() {
+		$inicio = $this->Receita->find('count');
+		
+		$this->login();
+		
+		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
+		$this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
+		
+		$fim = $this->Receita->find('count');
+		$this->assertEqual($fim, $inicio + 1);
 	}
 
-/**
- * testView method
- *
- * @return void
- */
-	public function testView() {
-	}
 
 /**
- * testAdd method
- *
- * @return void
- */
-	public function testAdd() {
+ * 
+ */	
+	public function login() {
+		$data = array('Usuario' => array('email' => 'andrecardosodev@gmail.com', 'senha' => 'andre'));
+		$this->testAction('/', array('method' => 'post', 'data' => $data) );
 	}
 
-/**
- * testEdit method
- *
- * @return void
- */
-	public function testEdit() {
-	}
 
 /**
- * testDelete method
- *
- * @return void
+ * 
  */
-	public function testDelete() {
+	public function logout() {
+		$this->testAction('usuarios/logout');
 	}
 
 }

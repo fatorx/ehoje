@@ -23,7 +23,7 @@ class ReceitasController extends AppController {
                         $this->request->data['Receita']['valor'] = str_replace( ',', '.', $this->request->data['Receita']['valor'] );
                         $this->request->data['Receita']['id_categoria_receita'] = $this->request->data['Receita']['tipo'];
                         $this->request->data['Receita']['id_usuario'] = $this->Session->read('user.id');
-                        
+                       
 			$this->Receita->create();
 			if ($this->Receita->save($this->request->data)) {
 				$this->Session->setFlash('<p>Receita contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess' ));
