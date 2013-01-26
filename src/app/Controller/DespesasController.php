@@ -45,7 +45,7 @@ class DespesasController extends AppController {
             $this->set('despesasVariaveis', $this->CategoriasDespesasVariavei->find('all'));
             $this->set('despesasExtras', $this->CategoriasDespesasExtra->find('all'));
         
-            if ( $this->request->is('post') ) {
+            if ( $this->request->is('post') && @$this->request->data['Despesa']['valor'] != '' ) {
                 $this->request->data['Despesa']['data'] = date('Y-m-d', strtotime($this->request->data['Despesa']['data']));
                 $this->request->data['Despesa']['valor'] = str_replace( ',', '.', $this->request->data['Despesa']['valor'] );
                 $despesa = explode( ';',$this->request->data['Despesa']['tipo'] );
@@ -118,7 +118,7 @@ class DespesasController extends AppController {
         if ( $this->Session->read('user') ) {
             $this->set('investimentos', $this->CategoriasInvestimento->find('list', array('fields' => array('id', 'nome'), 'order' => 'nome ASC')) );
             
-            if ( $this->request->is('post') ) {
+            if ( $this->request->is('post') && @$this->request->data['Investimento']['valor'] != '' ) {
                 $this->request->data['Investimento']['id_categoria_investimento'] = $this->request->data['Investimento']['tipo'];
                 $this->request->data['Investimento']['id_usuario'] = $this->Session->read('user.id');
                 $this->request->data['Investimento']['valor'] = str_replace(',', '.', $this->request->data['Investimento']['valor']);

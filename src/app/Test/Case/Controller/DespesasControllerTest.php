@@ -70,7 +70,6 @@ class DespesasControllerTest extends ControllerTestCase {
     }
     
     
-    
     public function testAddDespesaFixaLoggedIn() {
         $this->login();
         
@@ -122,6 +121,15 @@ class DespesasControllerTest extends ControllerTestCase {
         $final = $this->Investimento->find('count');
         
         $this->assertEqual($final, $inicial + 1);
+    }
+    
+    
+    /**
+     * 
+     */
+    public function testRelatorio() {
+            $this->testAction('/despesas/relatorio');
+            $this->assertNotEqual($this->vars['mesAtual'],null);
     }
  
 

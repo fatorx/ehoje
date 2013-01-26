@@ -18,6 +18,7 @@ class UsuariosControllerTest extends ControllerTestCase {
     public function testLogin() {
         $data = array('Usuario' => array('email' => 'andrecardosodev@gmail.com', 'senha' => 'andre'));
         $this->testAction('/', array('data' => $data, 'method' => 'post'));
+        $this->assertEqual($this->vars['erroLogin'], 0);
     }
     
 /**
@@ -78,7 +79,8 @@ class UsuariosControllerTest extends ControllerTestCase {
   * 
   */       
         public function testLogout() {
-		$this->testAction('usuarios/logout');
+            $this->testAction('usuarios/logout');
+            $this->assertEqual($this->controller->view, 'logout');
 	}
 
 }

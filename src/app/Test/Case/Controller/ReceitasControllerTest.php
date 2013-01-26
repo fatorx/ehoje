@@ -23,7 +23,7 @@ class ReceitasControllerTest extends ControllerTestCase {
  /**
   * testAddNotLoggedIn method
   */       
-	public function AddNotLoggedIn() {
+	public function testAddNotLoggedIn() {
 		$inicio = $this->Receita->find('count');
 		
 		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00'));
@@ -32,6 +32,19 @@ class ReceitasControllerTest extends ControllerTestCase {
 		$fim = $this->Receita->find('count');
 		$this->assertEqual($fim, $inicio);
 	}
+        
+        
+  /**
+  * testAddError method
+  */       
+	public function testAddError() {
+		$inicio = $this->Receita->find('count');
+		
+		$this->testAction('receitas/nova');
+		
+		$fim = $this->Receita->find('count');
+		$this->assertEqual($fim, $inicio);
+	}      
 	
         
   /**
@@ -54,5 +67,5 @@ class ReceitasControllerTest extends ControllerTestCase {
             $fim = $this->Receita->find('count');
             $this->assertEqual($inicio + 1, $fim);
 	}
-
+        
 }
