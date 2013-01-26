@@ -55,6 +55,21 @@ Suporte
   um valorzinho simbólico. A finalidade deste sistema não é fazer dinheiro, apenas cobrarei a instalação pelo fato de levar um bom tempo para esta configuração, e como todos sabem tempo é dinheiro.
   
   
+
+------------------------------------------------------------------------------------------------
+
+MÓDULOS/FUNCIONALIDADES A SEREM CRIADAS
+  
+  
+* Agendamentos de pagamentos de conta
+* Envio de email de lembrete de contas agendadas
+* Configurações do sistema
+* Meus dados (edição da conta do usuário)
+
+
+------------------------------------------------------------------------------------------------
+
+
   
   
   Atenciosamente Andre Cardoso.
