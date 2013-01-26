@@ -55,6 +55,8 @@ Suporte
   um valorzinho simbólico. A finalidade deste sistema não é fazer dinheiro, apenas cobrarei a instalação pelo fato de levar um bom tempo para esta configuração, e como todos sabem tempo é dinheiro.
   
   
+  
+   
 
 ------------------------------------------------------------------------------------------------
 
@@ -70,6 +72,8 @@ MÓDULOS/FUNCIONALIDADES A SEREM CRIADAS
 ------------------------------------------------------------------------------------------------
 
 
+
+ 
   
   
   Atenciosamente Andre Cardoso.
