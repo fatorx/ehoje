@@ -1,0 +1,124 @@
+2013-01-26 14:55:27 Error: [MissingControllerException] Controller class InvoicesController could not be found.
+#0 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-26 14:55:40 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 14:56:15 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 14:57:26 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 16:16:34 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 16:16:56 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 16:17:32 Error: [ReflectionException] Class PostsController does not have a constructor, so you cannot pass any constructor arguments
+#0 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(242): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#1 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(152): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-26 16:17:53 Error: [MissingViewException] View file "C:\xampp\htdocs\pdf\app\View\Posts\index.ctp" is missing.
+#0 C:\xampp\htdocs\pdf\lib\Cake\View\View.php(473): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\pdf\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\xampp\htdocs\pdf\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\pdf\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-26 16:53:11 Error: Fatal Error (1): Class 'FPDF' not found in [C:\xampp\htdocs\pdf\app\Vendor\FPDI-1.4.3\fpdf_tpl.php, line 20]
+2013-01-26 16:53:11 Error: [FatalErrorException] Class 'FPDF' not found
+#0 C:\xampp\htdocs\pdf\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20, Array)
+#2 C:\xampp\htdocs\pdf\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20, Array)
+#3 C:\xampp\htdocs\pdf\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-01-26 17:19:29 Error: Fatal Error (1): Class 'FPDF' not found in [C:\xampp\htdocs\pdf\app\Vendor\FPDI-1.4.3\fpdf_tpl.php, line 20]
+2013-01-26 17:19:29 Error: [FatalErrorException] Class 'FPDF' not found
+#0 C:\xampp\htdocs\pdf\lib\Cake\Error\ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20, Array)
+#2 C:\xampp\htdocs\pdf\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'FPDF' no...', 'C:\xampp\htdocs...', 20, Array)
+#3 C:\xampp\htdocs\pdf\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-01-27 16:34:48 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Datasource\DboSource.php(261): Mysql->connect()
+#1 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3169): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1096): Model->setDataSource('default')
+#4 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3191): Model->setSource('usuarios')
+#5 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1305): Model->getDataSource()
+#6 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(197): Model->schema()
+#7 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#8 C:\xampp\htdocs\sistema-de-financas\src\app\View\Usuarios\login.ctp(13): FormHelper->create('Usuario', Array)
+#9 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(923): include('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(886): View->_evaluate('C:\xampp\htdocs...', Array)
+#11 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(476): View->_render('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#14 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\sistema-de-financas\src\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-01-27 16:38:21 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Datasource\DboSource.php(261): Mysql->connect()
+#1 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3169): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1096): Model->setDataSource('default')
+#4 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3191): Model->setSource('usuarios')
+#5 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1305): Model->getDataSource()
+#6 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(197): Model->schema()
+#7 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#8 C:\xampp\htdocs\sistema-de-financas\src\app\View\Usuarios\login.ctp(13): FormHelper->create('Usuario', Array)
+#9 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(923): include('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(886): View->_evaluate('C:\xampp\htdocs...', Array)
+#11 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(476): View->_render('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#14 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\sistema-de-financas\src\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-01-27 16:38:42 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Datasource\DboSource.php(261): Mysql->connect()
+#1 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3169): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1096): Model->setDataSource('default')
+#4 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3191): Model->setSource('usuarios')
+#5 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1305): Model->getDataSource()
+#6 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(197): Model->schema()
+#7 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#8 C:\xampp\htdocs\sistema-de-financas\src\app\View\Usuarios\login.ctp(13): FormHelper->create('Usuario', Array)
+#9 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(923): include('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(886): View->_evaluate('C:\xampp\htdocs...', Array)
+#11 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(476): View->_render('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#14 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\sistema-de-financas\src\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-01-27 16:39:05 Error: [MissingTableException] Table usuarios for model Usuario was not found in datasource default.
+#0 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(3191): Model->setSource('usuarios')
+#1 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Model\Model.php(1305): Model->getDataSource()
+#2 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(197): Model->schema()
+#3 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\Helper\FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#4 C:\xampp\htdocs\sistema-de-financas\src\app\View\Usuarios\login.ctp(13): FormHelper->create('Usuario', Array)
+#5 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(923): include('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(886): View->_evaluate('C:\xampp\htdocs...', Array)
+#7 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\View\View.php(476): View->_render('C:\xampp\htdocs...')
+#8 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Controller\Controller.php(956): View->render(NULL, NULL)
+#9 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#10 C:\xampp\htdocs\sistema-de-financas\src\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\sistema-de-financas\src\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
