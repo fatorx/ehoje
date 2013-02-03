@@ -1,12 +1,11 @@
 <center>
-<h1>Bem vindo(a) ao SFP - Sistema de Finanças Pessoais</h1>
-
+<h1>Bem vindo(a) ao E hoje?</h1>
+<h4>Sistema de controle de finanças pessoais</h4>
+<br /><br />
 <h4>Para utilizar nosso sistema basta informar seu nome, email e senha. Uso gratuíto!</h4>
 
 <br clear="all"/><br /><br />
-<div class="contenttitle">
-    <h2 class="form"><span>Informe seus dados para poder utilizar nosso sistema</span></h2>
-</div><!--contenttitle-->
+
                     
 <br />
                     
@@ -29,7 +28,7 @@
     </p>
 
     <p>
-        <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem',  'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem (Seu avatar)',  'class' => 'smallinput')); ?>
     </p>
 
     <p class="stdformbutton">

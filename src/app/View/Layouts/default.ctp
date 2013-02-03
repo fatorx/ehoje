@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SFP - Sistema de Finanças Pessoais</title>
+<title>E hoje? quanto gastei?</title>
 
 <?php 
 
@@ -44,8 +44,9 @@
 	<div class="header radius3">
     	<div class="headerinner">
             <a href="">
-                <?php echo $this->Html->image('logo.png'); ?> 
-            </a>&nbsp; v0.1.1
+                <?php echo $this->Html->image('logo-header.png'); ?> 
+            </a>
+            &nbsp; v1.0.0
             <div class="headright">
             
             <div id="notiPanel" class="headercolumn" style="display:none;">

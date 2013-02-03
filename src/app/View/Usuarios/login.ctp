@@ -2,8 +2,8 @@
 	<div class="loginboxinner radius3">
     	<div class="loginheader">
             <h1 class="bebas">Realize seu login</h1>
-            <div class="logo">
-                <?php echo $this->Html->image('logo.png'); ?>
+            <div class="logo" style="right:115px;top:15px;">
+                <?php echo $this->Html->image('logo-simples.png', array('width' => '150px')); ?>
             </div>
     	</div><!--loginheader-->
         
