@@ -27,7 +27,7 @@ class DespesasController extends AppController {
             $this->set('novembro', array('receita' => $this->obter_receita('11'), 'despesa' => $this->obter_despesa('11','total') ));
             $this->set('dezembro', array('receita' => $this->obter_receita('12'), 'despesa' => $this->obter_despesa('12','total') ));
 
-            $this->set('proporcao',$this->obter_despesa('01', 'array'));
+            $this->set('proporcao',$this->obter_despesa(date('m'), 'array'));
             
             App::import('controller','functions');
             $Functions = new FunctionsController;
