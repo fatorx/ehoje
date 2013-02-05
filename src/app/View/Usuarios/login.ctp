@@ -22,8 +22,10 @@
                     <?php echo $this->Form->end(); ?>
             </p>
             <p>
-                <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>
+                <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>&nbsp;
+                <?php echo $this->Html->link('Novidades', '#', array('title' => 'Estamos em desenvolvimento com isso algumas funcionalidade ainda estão por vir. *Edição e remoção de despesas/receitas')); ?>
             </p>
         </div><!--loginform-->
     </div><!--loginboxinner-->
 </div><!--loginbox-->
+
