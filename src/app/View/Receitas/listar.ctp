@@ -1,5 +1,5 @@
 <div class="contenttitle radiusbottom0">
-        <h2 class="table"><span>Table with Quick Edit/View</span></h2>
+        <h2 class="table"><span>Listando suas receitas já cadastradas</span></h2>
 </div><!--contenttitle-->
 <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
     <thead>

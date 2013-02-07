@@ -19,8 +19,8 @@ class ReceitasController extends AppController {
             if ( $this->Session->read('user') ) {
                 $this->set('receitas', $this->CategoriasReceita->find('list', array('fields' => array('id', 'nome'), 'order' => 'nome ASC')) );
                 if ($this->request->is('post')) {
-                        $this->request->data['Receita']['data'] = date('Y-m-d', strtotime($this->request->data['Receita']['data']));
-                        $this->request->data['Receita']['valor'] = str_replace( ',', '.', $this->request->data['Receita']['valor'] );
+                        //$this->request->data['Receita']['data'] = date('Y-m-d', strtotime($this->request->data['Receita']['data']));
+                        //$this->request->data['Receita']['valor'] = str_replace( ',', '.', $this->request->data['Receita']['valor'] );
                         $this->request->data['Receita']['id_categoria_receita'] = $this->request->data['Receita']['tipo'];
                         $this->request->data['Receita']['id_usuario'] = $this->Session->read('user.id');
                        
@@ -59,25 +59,40 @@ class ReceitasController extends AppController {
         
         
   /**
+   * editar method
    * 
-   * @param type $id
+   * @param int $id
    * @throws NotFoundException
-   */      
+   */     
         public function editar($id = null) {
-            $this->Receita->id = $id;
-            if ( !$this->Receita->exists() ) {
-                throw new NotFoundException('Receita inválida');
-            }
-            if ( $this->request->is('post') || $this->request->is('put') ) {
-                debug($this->request->data);
-                $this->request->data['Receita']['id'] = $id;
-                $this->Receita->create();
-                if ( $this->Receita->save($this->request->data) ) {
-                    $this->Session->setFlash('Receita editada com sucesso!', 'default', array('class' => 'notification msgsuccess'));
+            $user = $this->Session->read('user');
+            if ( $user ) {
+                $this->Receita->id = $id;
+                if ( !$this->Receita->exists() ) {
+                    throw new NotFoundException('Receita inválida');
+                }
+                $receita = $this->Receita->read(null,$id);
+                if ($receita['Receita']['id_usuario'] != $user['id'] ) {
+                    throw new NotFoundException('Receita inválida');
+                }
+                
+                if ( $this->request->is('post') || $this->request->is('put') ) {
+                    $this->request->data['Receita']['id'] = $id;
+                    $this->Receita->create();
+                    
+                    if ( $this->Receita->save($this->request->data) ) {
+                        $this->Session->setFlash('<p>Receita editada com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                        $this->redirect('/receitas/listar/');
+                    } else {
+                        $this->Session->setFlash('<p>Não foi possível editar a receita, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                        $this->redirect('/receitas/listar/');
+                    }
+                } else {
+                    $this->request->data = $this->Receita->read(null, $id);
+                    $this->set('receitas', $this->CategoriasReceita->find('list', array('fields' => array('id','nome'))));
                 }
             } else {
-                $this->request->data = $this->Receita->read(null, $id);
-                $this->set('receitas', $this->CategoriasReceita->find('list', array('fields' => array('id','nome'))));
+                $this->redirect('/');
             }
         }
         

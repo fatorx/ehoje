@@ -13,8 +13,8 @@ class Receita extends AppModel {
  */
 	public $validate = array(
 		'data' => array(
-			'date' => array(
-				'rule' => array('date'),
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -60,6 +60,16 @@ class Receita extends AppModel {
 				$data = date('Y-m-d', strtotime($data));
 			} else {
 				unset($this->data[$this->alias]['data']);
+			}
+		}                    
+                if (isset($this->data[$this->alias]['valor'])) {
+			$valor = &$this->data[$this->alias]['valor'];
+
+			if (!empty($valor)) {
+                            $valor = str_replace('.', '', $valor);
+                            $valor = str_replace(',', '.', $valor);
+			} else {
+                            unset($this->data[$this->alias]['valor']);
 			}
 		}
 

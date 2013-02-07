@@ -111,7 +111,7 @@
                             <a href="#" class="tables menudrop false"><span>Despesas</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Adicionar despesa'),'/despesas/nova/',array('class'=>'tables','escape'=>false)); ?></li>   
-                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar despesas'),'/despesas/listar/',array('class'=>'tables','escape'=>false)); ?></li>   
+                                <!--<li><?php //echo $this->Html->link($this->Html->tag('span','Listar despesas'),'/despesas/listar/',array('class'=>'tables','escape'=>false)); ?></li> -->  
                             </ul>
                         </li>
                         
@@ -127,7 +127,7 @@
                             <a href="#" class="elements menudrop false"><span>Investimentos</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Novo investimento'),'/despesas/investimento/',array('class'=>'tables','escape'=>false)); ?></li>
-                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar investimentos'),'/despesas/listar_investimentos/',array('class'=>'tables','escape'=>false)); ?></li>
+                                <!--<li><?php //echo $this->Html->link($this->Html->tag('span','Listar investimentos'),'/despesas/listar_investimentos/',array('class'=>'tables','escape'=>false)); ?></li>-->
                             </ul>
                         </li>
                         
