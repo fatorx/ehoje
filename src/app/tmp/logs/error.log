@@ -990,3 +990,107 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 #3 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(899): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-02-07 01:12:16 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 01:24:26 Error: [MissingActionException] Action DespesasController::listar_investimentos() could not be found.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-02-07 01:26:23 Error: [MissingViewException] View file "/var/www/desenvolvimento/financas/src/app/View/Despesas/listar_investimentos.ctp" is missing.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(473): View->_getViewFileName(NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-02-07 01:27:00 Error: [MissingViewException] View file "/var/www/desenvolvimento/financas/src/app/View/Despesas/listar_investimentos.ctp" is missing.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(473): View->_getViewFileName(NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-02-07 01:37:52 Error: [MissingActionException] Action DespesasController::delete() could not be found.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-02-07 01:42:31 Error: Fatal Error (1): Cannot use assign-op operators with overloaded objects nor string offsets in [/var/www/desenvolvimento/financas/src/lib/Cake/View/Helper/FormHelper.php, line 1650]
+2013-02-07 01:42:31 Error: [FatalErrorException] Cannot use assign-op operators with overloaded objects nor string offsets
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Cannot use assi...', '/var/www/desenv...', 1650)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use assi...', '/var/www/desenv...', 1650, Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Cannot use assi...', '/var/www/desenv...', 1650, Array)
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-02-07 01:48:10 Error: [MissingViewException] View file "/var/www/desenvolvimento/financas/src/app/View/Despesas/delete_investimento.ctp" is missing.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(473): View->_getViewFileName(NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-02-07 01:57:05 Error: [MissingActionException] Action DespesasController::editar() could not be found.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(DespesasController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-02-07 01:57:21 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 01:58:16 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 01:59:19 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:02:25 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:02:50 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:08:07 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:08:10 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:08:10 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:09:12 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:10:51 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:11:14 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:12:17 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:13:08 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:13:52 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:14:15 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:14:20 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:14:25 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:14:27 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:14:27 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -50,21 +50,20 @@ class UsuariosController extends AppController {
   */      
         public function cadastro () {
             if ( $this->request->is('post') ) {
-                $this->request->data['Usuario']['senha'] = md5($this->request->data['Usuario']['senha']);
-
+                
                 $this->Usuario->create();
                 
                 if ( @$this->request->data['Usuario']['avatar'] && @$this->request->data['Usuario']['avatar']['type'] == 'image/png' || @$this->request->data['Usuario']['avatar']['type'] == 'image/jpeg' ) {
                     
-                    move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ;
-                        
+                    move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ; 
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     
-                    
                 } else if ( @$this->request->data['Usuario']['avatar']['type'] != 'image/png' && @$this->request->data['Usuario']['avatar']['type'] != 'image/jpeg' ){
+                    
                     $this->Session->setFlash('<p>Não foi possível realizar o upload da imagem. Tipo de arquivo não suportado. Tipos permitidos: jpeg e png. Enviado: '.@$this->request->data['Usuario']['avatar']['type'].'</p>', 
                                                         'default', array('class' => 'notification msgerror'));
                     $this->Usuario->data['Usuario']['avatar'] = '';
+                    
                 }
                 
                 if ( $this->Usuario->save($this->request->data) ) {

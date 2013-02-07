@@ -137,6 +137,81 @@ class DespesasController extends AppController {
         }
     }
     
+    
+ /**
+  * 
+  */   
+    public function listar_investimentos() {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+            $investimento = $this->paginate('Investimento',array('id_usuario' => $user['id']));
+            $categoriaInvestimentos = $this->CategoriasInvestimento->find('all');
+            $this->set(compact('investimento','categoriaInvestimentos'));
+        } else {
+            $this->redirect('/');
+        }
+    }
+    
+    
+    public function editar_investimento($id) {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+            $inv = $this->Investimento->read(null,$id);
+            $this->Investimento->id = $id;
+            if ( !$this->Investimento->exists() || $inv['Investimento']['id_usuario'] != $user['id'] ) {
+                throw new NotFoundException('Investimento inválido');
+            }
+            if ( $this->request->is('post') || $this->request->is('put') ) {
+                $this->request->data['Investimento']['id'] = $id;
+                $this->request->data['Investimento']['id_usuario'] = $user['id'];
+                
+                $this->Investimento->create();
+                
+                if ( $this->Investimento->save($this->request->data) ) {
+                    $this->Session->setFlash('<p>Dados do investimento alterados com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                    $this->redirect('/despesas/listar_investimentos/');
+                } else {
+                    $this->Session->setFlash('<p>Não foi possível alterar os dados do investimento, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                    $this->redirect('/despesas/listar_investimentos/');
+                }
+                
+            } else {
+                $this->request->data = $inv;
+                $this->set('investimentos', $this->CategoriasInvestimento->find('list', array('fields' => array('id','nome'))));
+            }
+        } else {
+            $this->redirect('/');
+        }       
+    }
+    
+    
+    
+ /**
+  * delete_investimento method
+  * 
+  * @param int $id
+  * @throws NotFoundException
+  */   
+    public function delete_investimento($id) {
+       $user = $this->Session->read('user');
+       if ( $user ) {
+           $this->Investimento->id = $id;
+           $inv = $this->Investimento->read(null,$id);
+           if ( !$this->Investimento->exists() || $inv['Investimento']['id_usuario'] != $user['id'] ) {
+               throw new NotFoundException('Investimento inválido');
+           }
+           if ( $this->Investimento->delete($id) ) {
+               $this->Session->setFlash('<p>Investimento removido com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+               $this->redirect('/despesas/listar_investimentos/');
+           } else {
+               $this->Session->setFlash('<p>Não foi possível remover o investimento, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+               $this->redirect('/despesas/listar_investimentos/');
+           }
+       } else {
+           $this->redirect('/');
+       }
+    }
+    
   
     
  /**

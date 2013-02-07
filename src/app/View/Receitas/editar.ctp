@@ -7,15 +7,15 @@
 <?php echo $this->Form->create('Receita', array('class' => 'stdform')); ?>
 
     <p>
-       <?php echo $this->Form->input('tipo', array('label' => 'Tipo de receita <font color="red">*</font>', 'type' => 'select', 'options' => $receitas, 'default' => $this->request->data['Receita']['id_categoria_receita'])); ?>
+       <?php echo $this->Form->input('tipo', array('label' => 'Tipo de receita', 'type' => 'select', 'options' => $receitas, 'default' => $this->request->data['Receita']['id_categoria_receita'])); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('data', array( 'type' => 'text', 'label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('m/d/Y', strtotime($this->request->data['Receita']['data'])))); ?>
+        <?php echo $this->Form->input('data', array( 'type' => 'text', 'label' => 'Data',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('m/d/Y', strtotime($this->request->data['Receita']['data'])))); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('valor', array('type' => 'text', 'label' => 'Valor <font color="red">*</font>',  'class' => 'smallinput', 'value' => number_format($this->request->data['Receita']['valor'],2,',','.'))); ?>
+        <?php echo $this->Form->input('valor', array('type' => 'text', 'label' => 'Valor',  'class' => 'smallinput', 'value' => number_format($this->request->data['Receita']['valor'],2,',','.'))); ?>
     </p>
     
     <p>
@@ -23,7 +23,7 @@
     </p>
 
     <p class="stdformbutton">
-            <button class="submit radius2">Registrar receita</button>
+            <button class="submit radius2">Gravar alterações</button>
     </p>
 
 <?php echo $this->Form->end(); ?>  

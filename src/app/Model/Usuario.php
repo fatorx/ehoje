@@ -61,4 +61,34 @@ class Usuario extends AppModel {
 			),
 		),
 	);
+        
+        public function beforeSave($options = array()) {
+		if (isset($this->data[$this->alias]['senha'])) {
+			$senha = &$this->data[$this->alias]['senha'];
+                        $senha = md5($senha);
+		} 
+                /*
+                if (isset($this->data[$this->alias]['valor'])) {
+			$valor = &$this->data[$this->alias]['valor'];
+
+			if (!empty($valor)) {
+                            $valor = str_replace('.', '', $valor);
+                            $valor = str_replace(',', '.', $valor);
+			} else {
+                            unset($this->data[$this->alias]['valor']);
+			}
+		}
+                if (isset($this->data[$this->alias]['tipo'])) {
+			$tipo = &$this->data[$this->alias]['tipo'];
+
+			if (!empty($tipo)) {
+                            $this->data[$this->alias]['id_categoria_receita'] = $this->data[$this->alias]['tipo'];
+			} else {
+                            unset($this->data[$this->alias]['tipo']);
+                            unset($this->data[$this->alias]['id_categoria_receita']);
+			}
+		}
+                */
+		return parent::beforeSave($options);
+	}
 }
