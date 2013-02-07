@@ -1097,3 +1097,9 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 2013-02-07 02:17:36 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-02-07 02:22:35 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-07 02:22:50 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
