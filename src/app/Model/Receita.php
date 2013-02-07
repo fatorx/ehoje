@@ -51,4 +51,18 @@ class Receita extends AppModel {
 			),
 		),
 	);
+        
+        public function beforeSave($options = array()) {
+		if (isset($this->data[$this->alias]['data'])) {
+			$data = &$this->data[$this->alias]['data'];
+
+			if (!empty($data)) {
+				$data = date('Y-m-d', strtotime($data));
+			} else {
+				unset($this->data[$this->alias]['data']);
+			}
+		}
+
+		return parent::beforeSave($options);
+	}
 }

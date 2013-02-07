@@ -6,7 +6,8 @@
 <title>E hoje? quanto gastei?</title>
 
 <?php 
-
+                echo $this->Html->css('cake.generic');
+                
                 echo $this->Html->css('ie7');
                 echo $this->Html->css('ie8');
                 echo $this->Html->css('style');
@@ -18,12 +19,13 @@
                 echo $this->Html->script('plugins/jquery.validate.min');
                 echo $this->Html->script('plugins/ui.spinner');
                 
-                
+                //echo $this->Html->script('custom/tables');
                 echo $this->Html->script('custom/general');
                 echo $this->Html->script('custom/form');
                 echo $this->Html->script('jquery-functions');
                 
                 echo $this->Html->script('https://www.google.com/jsapi');
+                
                 
                 echo $this->fetch('meta');
                 echo $this->fetch('css');
@@ -100,7 +102,7 @@
                     
                     <?php 
                         $currentDespesas = strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova' ) !== false ? 'current' : '';        
-                        $currentReceitas = strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/nova_receita' ) !== false ? 'current' : '';
+                        $currentReceitas = strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/nova_receita' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/listar/' ) !== false ? 'current' : '';
                         $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio' ) !== false ? 'current' : '';
                         $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false ? 'current' : '';
                     ?>
@@ -109,6 +111,7 @@
                             <a href="#" class="tables menudrop false"><span>Despesas</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Adicionar despesa'),'/despesas/nova/',array('class'=>'tables','escape'=>false)); ?></li>   
+                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar despesas'),'/despesas/listar/',array('class'=>'tables','escape'=>false)); ?></li>   
                             </ul>
                         </li>
                         
@@ -116,7 +119,7 @@
                             <a href="#" class="widgets menudrop false"><span>Receitas</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Nova receita'),'/receitas/nova/',array('class'=>'tables','escape'=>false)); ?></li>
-                                
+                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar receitas'),'/receitas/listar/',array('class'=>'tables','escape'=>false)); ?></li>
                             </ul>
                         </li>
                         
@@ -124,7 +127,7 @@
                             <a href="#" class="elements menudrop false"><span>Investimentos</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Novo investimento'),'/despesas/investimento/',array('class'=>'tables','escape'=>false)); ?></li>
-                                
+                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar investimentos'),'/despesas/listar_investimentos/',array('class'=>'tables','escape'=>false)); ?></li>
                             </ul>
                         </li>
                         
