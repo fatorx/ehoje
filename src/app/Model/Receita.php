@@ -54,7 +54,17 @@ class Receita extends AppModel {
                             unset($this->data[$this->alias]['valor']);
 			}
 		}
+                if (isset($this->data[$this->alias]['tipo'])) {
+			$tipo = &$this->data[$this->alias]['tipo'];
 
+			if (!empty($tipo)) {
+                            $this->data[$this->alias]['id_categoria_receita'] = $this->data[$this->alias]['tipo'];
+			} else {
+                            unset($this->data[$this->alias]['tipo']);
+                            unset($this->data[$this->alias]['id_categoria_receita']);
+			}
+		}
+                
 		return parent::beforeSave($options);
 	}
 }

@@ -19,11 +19,7 @@ class ReceitasController extends AppController {
             if ( $this->Session->read('user') ) {
                 $this->set('receitas', $this->CategoriasReceita->find('list', array('fields' => array('id', 'nome'), 'order' => 'nome ASC')) );
                 if ($this->request->is('post')) {
-                        //$this->request->data['Receita']['data'] = date('Y-m-d', strtotime($this->request->data['Receita']['data']));
-                        //$this->request->data['Receita']['valor'] = str_replace( ',', '.', $this->request->data['Receita']['valor'] );
-                        $this->request->data['Receita']['id_categoria_receita'] = $this->request->data['Receita']['tipo'];
                         $this->request->data['Receita']['id_usuario'] = $this->Session->read('user.id');
-                       
 			$this->Receita->create();
 
 			if ($this->Receita->save($this->request->data)) {
@@ -67,19 +63,15 @@ class ReceitasController extends AppController {
         public function editar($id = null) {
             $user = $this->Session->read('user');
             if ( $user ) {
-                $this->Receita->id = $id;
-                if ( !$this->Receita->exists() ) {
-                    throw new NotFoundException('Receita inválida');
-                }
                 $receita = $this->Receita->read(null,$id);
-                if ($receita['Receita']['id_usuario'] != $user['id'] ) {
+                $this->Receita->id = $id;
+                if ( !$this->Receita->exists() || $receita['Receita']['id_usuario'] != $user['id'] ) {
                     throw new NotFoundException('Receita inválida');
                 }
                 
                 if ( $this->request->is('post') || $this->request->is('put') ) {
                     $this->request->data['Receita']['id'] = $id;
                     $this->Receita->create();
-                    
                     if ( $this->Receita->save($this->request->data) ) {
                         $this->Session->setFlash('<p>Receita editada com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
                         $this->redirect('/receitas/listar/');
