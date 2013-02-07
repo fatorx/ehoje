@@ -104,7 +104,7 @@
                         $currentDespesas = strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova' ) !== false ? 'current' : '';        
                         $currentReceitas = strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/nova_receita' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/listar/' ) !== false ? 'current' : '';
                         $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio' ) !== false ? 'current' : '';
-                        $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false ? 'current' : '';
+                        $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar_investimentos/' ) !== false ? 'current' : '';
                     ?>
                     <ul>
                         <li class="<?php echo $currentDespesas; ?>">
