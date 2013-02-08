@@ -48,7 +48,7 @@
             <a href="">
                 <?php echo $this->Html->image('logo-header.png'); ?> 
             </a>
-            &nbsp; v1.1.1<?php //echo EHOJE_VERSION ; ?>
+            &nbsp; v<?php echo EHOJE_VERSION ; ?>
             <div class="headright">
             
             <div id="notiPanel" class="headercolumn" style="display:none;">
