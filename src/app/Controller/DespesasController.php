@@ -407,7 +407,7 @@ class DespesasController extends AppController {
                    $this->redirect('/despesas/listar');
                } else {
                    $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
-                   $this->redirect('/despesas/listar');
+                   $this->redirect('/despesas/listar/');
                }
            } 
         } else {
@@ -433,7 +433,7 @@ class DespesasController extends AppController {
                    $this->redirect('/despesas/listar');
                } else {
                    $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
-                   $this->redirect('/despesas/listar');
+                   $this->redirect('/despesas/listar/');
                }
            } 
         } else {
@@ -458,7 +458,7 @@ class DespesasController extends AppController {
                    $this->redirect('/despesas/listar');
                } else {
                    $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
-                   $this->redirect('/despesas/listar');
+                   $this->redirect('/despesas/listar/');
                }
            } 
         } else {
