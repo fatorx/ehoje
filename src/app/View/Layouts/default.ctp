@@ -101,14 +101,14 @@
               	<div class="leftmenu">
                     
                     <?php 
-                        $currentDespesas =  strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova' ) !== false || 
+                        $currentDespesas =  strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova/' ) !== false || 
                                             strpos( $_SERVER['REQUEST_URI'] , '/despesas/editar/' ) !== false ||
-                                            strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar' ) !== false 
-                                            ? 'current' : strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar_investimentos' ) !== false ? '' : '';                                
+                                            strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar/' ) !== false 
+                                            ? 'current' : '';                                
                         $currentReceitas =  strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false ? 'current' : '';
-                        $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio' ) !== false ? 'current' : '';
+                        $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio/' ) !== false ? 'current' : '';
                         $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false ||
-                                                strpos( $_SERVER['REQUEST_URI'] , 'despesas/listar_investimentos/' ) !== false
+                                                strpos( $_SERVER['REQUEST_URI'] , 'despesas/listar_investimentos' ) !== false
                                 ? 'current' : '';                       
                     ?>
                     <ul>
