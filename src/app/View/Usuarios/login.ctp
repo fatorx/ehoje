@@ -24,7 +24,7 @@
             <p>
                 <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>&nbsp;
             </p>
-            v<?php echo EHOJE_VERSION ; ?>
+            v1.1.1<?php //echo EHOJE_VERSION ; ?>
         </div><!--loginform-->
     </div><!--loginboxinner-->
 </div><!--loginbox-->
