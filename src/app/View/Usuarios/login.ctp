@@ -23,8 +23,8 @@
             </p>
             <p>
                 <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>&nbsp;
-                <?php echo $this->Html->link('Novidades', '#', array('title' => 'Estamos em desenvolvimento com isso algumas funcionalidade ainda estão por vir. *Edição e remoção de despesas/receitas')); ?>
             </p>
+            v<?php echo EHOJE_VERSION ; ?>
         </div><!--loginform-->
     </div><!--loginboxinner-->
 </div><!--loginbox-->
