@@ -48,7 +48,7 @@
             <a href="">
                 <?php echo $this->Html->image('logo-header.png'); ?> 
             </a>
-            &nbsp; v1.0.0
+            &nbsp; v1.1.0
             <div class="headright">
             
             <div id="notiPanel" class="headercolumn" style="display:none;">
