@@ -12,19 +12,19 @@
 <?php echo $this->Form->create('Usuario', array('class' => 'stdform', 'enctype' => 'multipart/form-data', 'onsubmit' => 'return validaNewUser();')); ?>
 
     <p>
-       <?php echo $this->Form->input('nome', array('label' => 'Nome <font color="red">*</font>', 'maxlength' => 255, 'class' => 'smallinput')); ?>
+       <?php echo $this->Form->input('nome', array('maxlength' => 255, 'class' => 'smallinput')); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('email', array('label' => 'Email <font color="red">*</font>', 'maxlength' => 255, 'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('email', array('maxlength' => 255, 'class' => 'smallinput')); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('senha', array('type' => 'password', 'label' => 'Senha <font color="red">*</font>',  'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('senha', array('type' => 'password',  'class' => 'smallinput')); ?>
     </p>
     
     <p>
-        <?php echo $this->Form->input('verifica_senha', array('type' => 'password', 'label' => 'Repita a senha <font color="red">*</font>',  'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('verifica_senha', array('type' => 'password', 'label' => 'Repita a senha',  'class' => 'smallinput')); ?>
     </p>
 
     <p>
@@ -37,7 +37,7 @@
 
 <?php echo $this->Form->end(); ?>  
     
-    Os campos com <font color="red">*</font> são de preenchimento obrigatório.                  
+    <font color="red">*</font> Todos os campos são de preenchimento obrigatório.                  
                   
 <br clear="all" /><br />
 </center>

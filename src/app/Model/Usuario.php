@@ -60,6 +60,16 @@ class Usuario extends AppModel {
 				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+                'avatar' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Selecione uma imagem de seu computador',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
         
         public function beforeSave($options = array()) {
