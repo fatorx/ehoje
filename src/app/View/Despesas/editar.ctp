@@ -1,51 +1,18 @@
 <div class="contenttitle">
-    <h2 class="form"><span>Informe os dados da despesa</span></h2>
+    <h2 class="form"><span>Editando despesa Nº <?php echo $this->request->data['Despesa']['id']; ?></span></h2>
 </div><!--contenttitle-->
                     
 <br />
                     
 <?php echo $this->Form->create('Despesa', array('class' => 'stdform')); ?>
-
+    <?php echo $this->Form->input('tipo', array('type' => 'hidden', 'value' => $current.$this->request->data['Despesa']['id_categoria'])); ?>
+<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $this->request->data['Despesa']['id'])); ?>
     <p>
-        <label>Tipo de despesa <font color="red">*</font></label>
-        <span class="smallinput">
-
-            <select name="data[Despesa][tipo]">
-                <option value="">Selecione uma opção</option>
-                <optgroup label="DESPESAS FIXAS">
-                    <?php 
-                        if ( @$despesasFixas ) {
-                            foreach ( $despesasFixas as $despesasFixas ) {
-                                echo "<option value='f;".$despesasFixas['CategoriasDespesasFixa']['id']."'>" . $despesasFixas['CategoriasDespesasFixa']['nome'] . "</option>";
-                            }
-                        } ?>
-                </optgroup>
-                <optgroup label="DESPESAS VARIÁVEIS">
-                    <?php 
-                        if ( @$despesasVariaveis ) {
-                            foreach ( $despesasVariaveis as $despesasVariaveis ) {
-                                echo "<option value='v;".$despesasVariaveis['CategoriasDespesasVariavei']['id']."'>" . $despesasVariaveis['CategoriasDespesasVariavei']['nome'] . "</option>";
-                            }
-                        }?>
-                </optgroup>
-                <optgroup label="DESPESAS EXTRAS">
-                    <?php 
-                        if ( @$despesasExtras ) {
-                            foreach ( $despesasExtras as $despesasExtras) {
-                                echo "<option value='e;".$despesasExtras['CategoriasDespesasExtra']['id']."'>" . $despesasExtras['CategoriasDespesasExtra']['nome'] . "</option>";
-                            }
-                        }?>
-                </optgroup>
-            </select>
-        </span>
+        <?php echo $this->Form->input('data', array('label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('m/d/Y', strtotime($this->request->data['Despesa']['data'])))); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('data', array('label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker')); ?>
-    </p>
-
-    <p>
-        <?php echo $this->Form->input('valor', array('label' => 'Valor <font color="red">*</font>',  'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('valor', array('label' => 'Valor <font color="red">*</font>',  'class' => 'smallinput', 'value' => number_format($this->request->data['Despesa']['valor'],2,',','.'))); ?>
     </p>
     
     <p>
@@ -53,7 +20,7 @@
     </p>
 
     <p class="stdformbutton">
-            <button class="submit radius2">Registrar despesa</button>
+            <button class="submit radius2">Gravar alterações</button>
     </p>
 
 <?php echo $this->Form->end(); ?>  

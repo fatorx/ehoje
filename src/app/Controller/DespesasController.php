@@ -6,11 +6,33 @@ App::uses('AppController', 'Controller');
  */
 class DespesasController extends AppController {
 
-    var $uses = array('DespesasFixa', 'Receita',  'DespesasVariavei', 'DespesasExtra', 'CategoriasDespesasFixa', 'CategoriasDespesasVariavei', 'CategoriasDespesasExtra', 'Investimento', 'CategoriasInvestimento');
+    var $uses = array(  'DespesasFixa', 'Receita',  'DespesasVariavei', 
+                        'DespesasExtra', 'CategoriasDespesasFixa', 'CategoriasDespesasVariavei', 
+                        'CategoriasDespesasExtra', 'Investimento', 'CategoriasInvestimento');
     
+    
+    
+    public function listar() {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+           $despesasFixas = $this->DespesasFixa->find('all', array('conditions' => array('id_usuario' => $user['id']),'order' => array('data' => 'desc'), 'limit' => 50));
+           $despesasVariaveis = $this->DespesasVariavei->find('all', array('conditions' => array('id_usuario' => $user['id']),'order' => array('data' => 'desc'), 'limit' => 50)); 
+           $despesasExtras = $this->DespesasExtra->find('all', array('conditions' => array('id_usuario' => $user['id']),'order' => array('data' => 'desc'), 'limit' => 50)); 
+           
+           $categoriasFixas = $this->CategoriasDespesasFixa->find('all');
+           $categoriasVariaveis = $this->CategoriasDespesasVariavei->find('all');
+           $categoriasExtras = $this->CategoriasDespesasExtra->find('all');
+           
+           $this->set(compact('despesasFixas', 'despesasVariaveis', 'despesasExtras',
+                         'categoriasFixas', 'categoriasVariaveis', 'categoriasExtras'       
+                   ));
+        } else {
+            $this->redirect('/');
+        }
+    }
     
  /**
-  * 
+  * relatorio method
   */   
     public function relatorio () {
         if ( $this->Session->read('user') ) {
@@ -107,6 +129,90 @@ class DespesasController extends AppController {
             }
         } else {
             $this->redirect('/');
+        }
+    }
+    
+    
+    public function editar($id = null, $tipo = null) {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+           switch ($tipo) {
+               case 'f':
+                   $despesa = $this->DespesasFixa->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id'])));
+                   $despesa = $despesa['0']['DespesasFixa'];
+                   $despesa['id_categoria'] = $despesa['id_categoria_despesa_fixa'];
+                   $current = 'f;';
+                   break;
+               case 'v':
+                   $despesa = $this->DespesasVariavei->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id'])));
+                   $despesa = $despesa['0']['DespesasVariavei'];
+                   $despesa['id_categoria'] = $despesa['id_categoria_despesa_variavel'];
+                   $current = 'v;';
+                   break;
+               case 'e':
+                   $despesa = $this->DespesasExtra->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id'])));
+                   $despesa = $despesa['0']['DespesasExtra'];
+                   $despesa['id_categoria'] = $despesa['id_categoria_despesa_extra'];
+                   $current = 'e;';
+                   break;
+           } 
+           
+           if ( !$despesa ) {
+               throw new NotFoundException('Despesa não localizada');
+           }
+           
+           if ( $this->request->is('post') || $this->request->is('put')) {
+                
+                $despesa = explode( ';',$this->request->data['Despesa']['tipo'] );
+                $tipoDespesa = $despesa[0];
+                $idDespesa = $despesa[1];
+                
+                $saveSuccess = true;
+                debug($this->request->data);
+                switch($tipoDespesa) {
+                    case 'f':
+                        $this->request->data['DespesasFixa'] = $this->request->data['Despesa'];
+                        $this->request->data['DespesasFixa']['id_categoria_despesa_fixa'] = $idDespesa;
+                        $this->request->data['DespesasFixa']['id_usuario'] = $user['id'];
+                        if ( !$this->DespesasFixa->save($this->request->data['DespesasFixa']) ) {
+                            $saveSuccess = false;
+                        }
+                        break;
+                    case 'v':
+                        $this->request->data['DespesasVariavei'] = $this->request->data['Despesa'];
+                        $this->request->data['DespesasVariavel']['id_categoria_despesa_variavel'] = $idDespesa;
+                        $this->request->data['DespesasVariavei']['id_usuario'] = $user['id'];
+                        if ( !$this->DespesasVariavei->save($this->request->data['DespesasVariavei']) ) {
+                            $saveSuccess = false;
+                        }
+                        break;
+                    case 'e':
+                        $this->request->data['DespesasExtra'] = $this->request->data['Despesa'];
+                        $this->request->data['DespesasExtra']['id_categoria_despesa_extra'] = $idDespesa;
+                        $this->request->data['DespesasExtra']['id_usuario'] = $user['id'];
+                        
+                        if ( !$this->DespesasExtra->save($this->request->data['DespesasExtra']) ) {
+                            $saveSuccess = false;
+                        }
+                        break;
+                }
+                
+                if ( $saveSuccess ) {
+                    $this->Session->setFlash('<p>Despesa editada com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                    $this->redirect('/despesas/listar');
+                } else {
+                    $this->Session->setFlash('<p>Não foi possíve editar a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                }
+                
+           } else {
+               $despesasFixas = $this->CategoriasDespesasFixa->find('all');
+               $despesasVariaveis = $this->CategoriasDespesasVariavei->find('all');
+               $despesasExtras = $this->CategoriasDespesasExtra->find('all');
+               
+               $this->set(compact( 'despesasFixas', 'despesasVariaveis', 'despesasExtras', 'current' ));
+               
+               $this->request->data['Despesa'] = $despesa;
+           }
         }
     }
    
@@ -281,6 +387,83 @@ class DespesasController extends AppController {
         }
         
         return $valorFinal; 
+    }
+    
+    
+ /**
+  * 
+  * @param type $id
+  * @throws NotFoundException
+  */   
+    public function delete_fixa($id = null) {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+           $despesa = $this->DespesasFixa->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id']))); 
+           if ( !$despesa ) {
+               throw new NotFoundException('Despesa inválida');
+           } else {
+               if ( $this->DespesasFixa->delete($id) ) {
+                   $this->Session->setFlash('<p>Despesa removida com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                   $this->redirect('/despesas/listar');
+               } else {
+                   $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                   $this->redirect('/despesas/listar');
+               }
+           } 
+        } else {
+            $this->redirect('/');
+        }
+    }
+    
+    
+    /**
+  * 
+  * @param type $id
+  * @throws NotFoundException
+  */   
+    public function delete_variavel($id = null) {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+           $despesa = $this->DespesasVariavei->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id']))); 
+           if ( !$despesa ) {
+               throw new NotFoundException('Despesa inválida');
+           } else {
+               if ( $this->DespesasVariavei->delete($id) ) {
+                   $this->Session->setFlash('<p>Despesa removida com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                   $this->redirect('/despesas/listar');
+               } else {
+                   $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                   $this->redirect('/despesas/listar');
+               }
+           } 
+        } else {
+            $this->redirect('/');
+        }
+    }
+    
+    /**
+  * 
+  * @param type $id
+  * @throws NotFoundException
+  */   
+    public function delete_extra($id = null) {
+        $user = $this->Session->read('user');
+        if ( $user ) {
+           $despesa = $this->DespesasExtra->find('all', array('conditions' => array('id' => $id, 'id_usuario' => $user['id']))); 
+           if ( !$despesa ) {
+               throw new NotFoundException('Despesa inválida');
+           } else {
+               if ( $this->DespesasExtra->delete($id) ) {
+                   $this->Session->setFlash('<p>Despesa removida com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                   $this->redirect('/despesas/listar');
+               } else {
+                   $this->Session->setFlash('<p>Não foi possível remover a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                   $this->redirect('/despesas/listar');
+               }
+           } 
+        } else {
+            $this->redirect('/');
+        }
     }
     
 }

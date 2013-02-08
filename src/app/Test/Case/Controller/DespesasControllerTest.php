@@ -15,7 +15,7 @@ class DespesasControllerTest extends ControllerTestCase {
         $this->Investimento = ClassRegistry::init('Investimentos');
     }
 
-    
+  
     public function testAddDespesaFixaNotLoggedIn() {
         $this->logout();
         

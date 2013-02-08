@@ -13,14 +13,6 @@ class DespesasExtra extends AppModel {
  */
 	public $validate = array(
 		'data' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -41,24 +33,6 @@ class DespesasExtra extends AppModel {
 			),
 			'decimal' => array(
 				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'tipo' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'numeric' => array(
-				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -103,4 +77,28 @@ class DespesasExtra extends AppModel {
 			),
 		),
 	);
+        
+        public function beforeValidate($options = array()) {
+		if (isset($this->data[$this->alias]['data'])) {
+			$data = &$this->data[$this->alias]['data'];
+
+			if (!empty($data)) {
+				$data = date('Y-m-d', strtotime($data));
+			} else {
+				unset($this->data[$this->alias]['data']);
+			}
+		}
+                if (isset($this->data[$this->alias]['valor'])) {
+			$valor = &$this->data[$this->alias]['valor'];
+
+			if (!empty($valor)) {
+				$valor = str_replace('.', '', $valor);
+                                $valor = str_replace(',', '.', $valor);
+			} else {
+				unset($this->data[$this->alias]['valor']);
+			}
+		}
+                
+		return parent::beforeValidate($options);
+	}
 }

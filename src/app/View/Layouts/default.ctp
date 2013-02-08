@@ -101,19 +101,22 @@
               	<div class="leftmenu">
                     
                     <?php 
-                        $currentDespesas = strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova' ) !== false ? 'current' : '';        
-                        $currentReceitas = strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/nova_receita' ) !== false || strpos( $_SERVER['REQUEST_URI'] , '/receitas/listar/' ) !== false ? 'current' : '';
+                        $currentDespesas =  strpos( $_SERVER['REQUEST_URI'] , '/despesas/nova' ) !== false || 
+                                            strpos( $_SERVER['REQUEST_URI'] , '/despesas/editar/' ) !== false ||
+                                            strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar' ) !== false 
+                                            ? 'current' : strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar_investimentos' ) !== false ? '' : '';                                
+                        $currentReceitas =  strpos( $_SERVER['REQUEST_URI'] , '/receitas/' ) !== false ? 'current' : '';
                         $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio' ) !== false ? 'current' : '';
-                        $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false || 
-                                                strpos( $_SERVER['REQUEST_URI'] , '/despesas/listar_investimentos/' ) !== false ||
-                                                strpos( $_SERVER['REQUEST_URI'] , '/despesas/editar_investimento/' ) !== false ? 'current' : '';
+                        $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false ||
+                                                strpos( $_SERVER['REQUEST_URI'] , 'despesas/listar_investimentos/' ) !== false
+                                ? 'current' : '';                       
                     ?>
                     <ul>
                         <li class="<?php echo $currentDespesas; ?>">
                             <a href="#" class="tables menudrop false"><span>Despesas</span></a>                        	
                             <ul>
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Adicionar despesa'),'/despesas/nova/',array('class'=>'tables','escape'=>false)); ?></li>   
-                                <!--<li><?php //echo $this->Html->link($this->Html->tag('span','Listar despesas'),'/despesas/listar/',array('class'=>'tables','escape'=>false)); ?></li> -->  
+                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar despesas'),'/despesas/listar/',array('class'=>'tables','escape'=>false)); ?></li>  
                             </ul>
                         </li>
                         
