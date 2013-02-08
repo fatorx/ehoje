@@ -14,7 +14,7 @@ class UsuariosController extends AppController {
      */    
         public function login () {
             if ( $this->Session->read('user') ) {
-                $this->redirect('/despesas/relatorio');
+                $this->redirect('/despesas/relatorio/');
             }
             
             if ( $this->request->is('post') ) {

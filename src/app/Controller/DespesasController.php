@@ -199,7 +199,7 @@ class DespesasController extends AppController {
                 
                 if ( $saveSuccess ) {
                     $this->Session->setFlash('<p>Despesa editada com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
-                    $this->redirect('/despesas/listar');
+                    $this->redirect('/despesas/listar/');
                 } else {
                     $this->Session->setFlash('<p>Não foi possíve editar a despesa, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
                 }

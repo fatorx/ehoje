@@ -1343,3 +1343,24 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 2013-02-08 01:14:32 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-02-08 01:22:47 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:24:12 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:24:15 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:24:15 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:25:48 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:25:50 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-08 01:25:50 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
