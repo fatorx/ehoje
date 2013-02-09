@@ -66,7 +66,7 @@ class UsuariosController extends AppController {
                     $this->Usuario->data['Usuario']['avatar'] = '';
                     
                 }
-                if (!is_string($this->request->data['Usuario']['avatar'])) {
+                if (!is_string(@$this->request->data['Usuario']['avatar'])) {
                     $this->request->data['Usuario']['avatar'] = null;
                 }
                 if ( $this->Usuario->save($this->request->data) ) {
