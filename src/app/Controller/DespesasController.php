@@ -167,23 +167,23 @@ class DespesasController extends AppController {
                 $tipoDespesa = $despesa[0];
                 $idDespesa = $despesa[1];
                 
-                $saveSuccess = true;
+                $saveSuccess = false;
                 debug($this->request->data);
                 switch($tipoDespesa) {
                     case 'f':
                         $this->request->data['DespesasFixa'] = $this->request->data['Despesa'];
                         $this->request->data['DespesasFixa']['id_categoria_despesa_fixa'] = $idDespesa;
                         $this->request->data['DespesasFixa']['id_usuario'] = $user['id'];
-                        if ( !$this->DespesasFixa->save($this->request->data['DespesasFixa']) ) {
-                            $saveSuccess = false;
+                        if ( $this->DespesasFixa->save($this->request->data['DespesasFixa']) ) {
+                            $saveSuccess = true;
                         }
                         break;
                     case 'v':
                         $this->request->data['DespesasVariavei'] = $this->request->data['Despesa'];
                         $this->request->data['DespesasVariavel']['id_categoria_despesa_variavel'] = $idDespesa;
                         $this->request->data['DespesasVariavei']['id_usuario'] = $user['id'];
-                        if ( !$this->DespesasVariavei->save($this->request->data['DespesasVariavei']) ) {
-                            $saveSuccess = false;
+                        if ( $this->DespesasVariavei->save($this->request->data['DespesasVariavei']) ) {
+                            $saveSuccess = true;
                         }
                         break;
                     case 'e':
@@ -191,8 +191,8 @@ class DespesasController extends AppController {
                         $this->request->data['DespesasExtra']['id_categoria_despesa_extra'] = $idDespesa;
                         $this->request->data['DespesasExtra']['id_usuario'] = $user['id'];
                         
-                        if ( !$this->DespesasExtra->save($this->request->data['DespesasExtra']) ) {
-                            $saveSuccess = false;
+                        if ( $this->DespesasExtra->save($this->request->data['DespesasExtra']) ) {
+                            $saveSuccess = true;
                         }
                         break;
                 }

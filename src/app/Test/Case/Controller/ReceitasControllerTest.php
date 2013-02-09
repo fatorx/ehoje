@@ -20,6 +20,16 @@ class ReceitasControllerTest extends ControllerTestCase {
 	public function testLogout() {
 		$this->testAction('usuarios/logout');
 	}
+        
+        public function testListarNotLoggedIn() {
+            $this->testAction('/receitas/listar');
+            $this->assertEqual($this->vars, array());
+        }
+        
+        public function testEditarNotLoggedIn() {
+            $this->testAction('/receitas/editar/5');
+            $this->assertEqual($this->vars, array());
+        }
     
  /**
   * testAddNotLoggedIn method
@@ -61,14 +71,14 @@ class ReceitasControllerTest extends ControllerTestCase {
 	}
         
         
-        public function testAddError(){
-            $inicio = $this->Receita->find('count');
+        public function testEditSemPost() {
+            $user = $this->Usuario->find('first', array('order' => array('id' => 'desc')));
+            $user = $user['Usuarios']['id'];
+            
+            $this->testAction('/receitas/editar/4', array('method' => 'get'));
 
-            $data = array('Receita' => array('tipo' => 0, 'data' => date('Y-m-d'), 'valor' => '38eewas','descricao' => 'Registro adicionado pelo teste'));
-            $this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
-
-            $fim = $this->Receita->find('count');
-            $this->assertNotEqual($fim, $inicio+1);
+            $this->assertNotEqual($this->vars, array());
+            
         }
         
         
