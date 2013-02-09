@@ -1391,3 +1391,11 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 #8 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
 #9 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2013-02-08 21:33:18 Error: Fatal Error (64): Cannot redeclare ReceitasControllerTest::testAddError() in [/var/www/desenvolvimento/financas/src/app/Test/Case/Controller/ReceitasControllerTest.php, line 78]
+2013-02-08 21:33:18 Error: [FatalErrorException] Cannot redeclare ReceitasControllerTest::testAddError()
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/var/www/desenv...', 78)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/var/www/desenv...', 78, Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/var/www/desenv...', 78, Array)
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

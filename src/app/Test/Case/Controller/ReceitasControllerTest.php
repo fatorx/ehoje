@@ -34,25 +34,12 @@ class ReceitasControllerTest extends ControllerTestCase {
 		$this->assertEqual($fim, $inicio);
 	}
         
-        
-  /**
-  * testAddError method
-  */       
-	public function testAddError() {
-		$inicio = $this->Receita->find('count');
-		
-		$this->testAction('receitas/nova');
-		
-		$fim = $this->Receita->find('count');
-		$this->assertEqual($fim, $inicio);
-	}      
-	
-        
   /**
    * 
    */      
         public function testLogin() {
             $this->testAction('/', array('method' => 'post', 'data' => array('Usuario' => array('email' => 'andrecardosodev@gmail.com', 'senha' => 'andre'))));
+            $this->assertEqual($this->vars['erroLogin'], 0);
         }
         
         
@@ -66,12 +53,23 @@ class ReceitasControllerTest extends ControllerTestCase {
         public function testAddLoggedIn() {
             $inicio = $this->Receita->find('count');
 
-            $data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
+            $data = array('Receita' => array('tipo' => 1, 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
             $this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
 
             $fim = $this->Receita->find('count');
             $this->assertEqual($inicio + 1, $fim);
 	}
+        
+        
+        public function testAddError(){
+            $inicio = $this->Receita->find('count');
+
+            $data = array('Receita' => array('tipo' => 0, 'data' => date('Y-m-d'), 'valor' => '38eewas','descricao' => 'Registro adicionado pelo teste'));
+            $this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
+
+            $fim = $this->Receita->find('count');
+            $this->assertNotEqual($fim, $inicio+1);
+        }
         
         
         public function testEdit() {

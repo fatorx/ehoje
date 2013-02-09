@@ -1,15 +1,16 @@
 <center>
 <h1>Bem vindo(a) ao E hoje?</h1>
-<h4>Sistema de controle de finanças pessoais</h4>
-<br /><br />
-<h4>Para utilizar nosso sistema basta informar seu nome, email e senha. Uso gratuíto!</h4>
+<br clear="all" />
+<h3>Sistema de controle de finanças pessoais</h3>
+<br />
+<h3>Para utilizar nosso sistema basta informar seu nome, email e senha. Uso gratuíto!</h3>
 
 <br clear="all"/><br /><br />
 
                     
 <br />
                     
-<?php echo $this->Form->create('Usuario', array('class' => 'stdform', 'enctype' => 'multipart/form-data', 'onsubmit' => 'return validaNewUser();')); ?>
+<?php echo $this->Form->create('Usuario', array('class' => 'stdform', 'enctype' => 'multipart/form-data')); ?>
 
     <p>
        <?php echo $this->Form->input('nome', array('maxlength' => 255, 'class' => 'smallinput')); ?>
@@ -28,9 +29,13 @@
     </p>
 
     <p>
-        <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem (Seu avatar)',  'class' => 'smallinput')); ?>
+        Imagem (seu avatar)&nbsp;&nbsp;
+        <a href="" onclick="javascript: $('#UsuarioAvatar').click();" class="btn btn_archive"><span>Imagem</span></a>
+        <div style="display:none;">
+            <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem (Seu avatar)')); ?>
+        </div>    
     </p>
-
+    <br clear="all" />
     <p class="stdformbutton">
             <button class="submit radius2">Finalizar cadastro</button>
     </p>
@@ -41,35 +46,3 @@
                   
 <br clear="all" /><br />
 </center>
-
-<script>
-    function validaNewUser(){
-        if ( jQuery("#UsuarioNome").val() == "") {
-            alert("Por favor preencha o seu nome");
-            jQuery("#UsuarioNome").focus();
-            return false;
-        } 
-        
-        if ( jQuery("#UsuarioEmail").val() == "") {
-            alert("Por favor preencha o seu email");
-            jQuery("#UsuarioEmail").focus();
-            return false;
-        } else {
-            
-        }
-        
-        if ( jQuery("#UsuarioSenha").val() == "" ) {
-            alert("Por favor defina sua senha");
-            jQuery("#UsuarioSenha").focus();
-            return false;
-        } else {
-            if ( jQuery("#UsuarioSenha").val() != jQuery("#UsuarioVerificaSenha").val() ) {
-                alert("As senhas informadas não conferem");
-                jQuery("#UsuarioVerificaSenha").focus();
-                return false;
-            }
-        }
-        
-    
-}
-</script>

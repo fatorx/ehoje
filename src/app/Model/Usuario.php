@@ -52,8 +52,8 @@ class Usuario extends AppModel {
 		),
                 'verifica_senha' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Por favor repita a senha',
+				'rule' => array('customPassword'),
+				'message' => 'As senhas digitadas não conferem',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -61,44 +61,46 @@ class Usuario extends AppModel {
 			),
 		),
                 'avatar' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Selecione uma imagem de seu computador',
-				//'allowEmpty' => false,
+			//'notempty' => array(
+				//'rule' => array('notempty'),
+				//'message' => 'Selecione uma imagem de seu computador',
+				//'allowEmpty' => true,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
-				'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			//),
 		),
 	);
+        
         
         public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['senha'])) {
 			$senha = &$this->data[$this->alias]['senha'];
                         $senha = md5($senha);
 		} 
-                /*
-                if (isset($this->data[$this->alias]['valor'])) {
-			$valor = &$this->data[$this->alias]['valor'];
-
-			if (!empty($valor)) {
-                            $valor = str_replace('.', '', $valor);
-                            $valor = str_replace(',', '.', $valor);
-			} else {
-                            unset($this->data[$this->alias]['valor']);
-			}
-		}
-                if (isset($this->data[$this->alias]['tipo'])) {
-			$tipo = &$this->data[$this->alias]['tipo'];
-
-			if (!empty($tipo)) {
-                            $this->data[$this->alias]['id_categoria_receita'] = $this->data[$this->alias]['tipo'];
-			} else {
-                            unset($this->data[$this->alias]['tipo']);
-                            unset($this->data[$this->alias]['id_categoria_receita']);
-			}
-		}
-                */
+                
 		return parent::beforeSave($options);
 	}
+        
+        
+        public function beforeValidate($options = array()) {
+            if ( isset($this->data[$this->alias]['email']) ) {
+                $email = &$this->data[$this->alias]['email'];
+                
+                if (!empty($email)) {
+                    $email = strtolower($email);
+                } else {
+                    unset($this->data[$this->alias]['email']);
+                }
+            }
+            parent::beforeValidate($options);
+        }
+        
+        
+        public function customPassword($data) {
+            if (isset($this->data[$this->alias]['senha'])) {
+                return $this->data[$this->alias]['senha'] === current($data);
+            }
+            return true;
+        }
 }
