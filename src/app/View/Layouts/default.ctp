@@ -6,7 +6,7 @@
 <title>E hoje? quanto gastei?</title>
 
 <?php 
-                echo $this->Html->css('cake.generic');
+                echo $this->Html->css('cake.generic.alt');
                 
                 echo $this->Html->css('ie7');
                 echo $this->Html->css('ie8');
@@ -17,11 +17,13 @@
                 echo $this->Html->script('plugins/jquery.flot.min');
                 echo $this->Html->script('plugins/jquery.flot.resize.min');
                 echo $this->Html->script('plugins/jquery.validate.min');
-                echo $this->Html->script('plugins/ui.spinner');
+                //echo $this->Html->script('plugins/ui.spinner');
                 
                 //echo $this->Html->script('custom/tables');
                 echo $this->Html->script('custom/general');
                 echo $this->Html->script('custom/form');
+                
+                //echo $this->Html->script('plugins/jquery-ui-1.10.0.custom');
                 echo $this->Html->script('jquery-functions');
                 
                 echo $this->Html->script('https://www.google.com/jsapi');

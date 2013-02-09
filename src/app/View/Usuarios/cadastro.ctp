@@ -1,11 +1,11 @@
 <center>
 <h1>Bem vindo(a) ao E hoje?</h1>
 <br clear="all" />
-<h3>Sistema de controle de finanças pessoais</h3>
-<br />
-<h3>Para utilizar nosso sistema basta informar seu nome, email e senha. Uso gratuíto!</h3>
+<h4>Para utilizar nosso sistema basta informar seu nome, email e senha. Uso gratuíto!</h4>
 
-<br clear="all"/><br /><br />
+<br clear="all"/><br />
+<h3>Seja o próximo a utilizar, já somos <?php echo number_format($usuarios,0,'','.'); ?>!</h3>
+<br />
 
                     
 <br />

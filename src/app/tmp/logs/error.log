@@ -1447,3 +1447,84 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 #8 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
 #9 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2013-02-09 20:43:03 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Datasource/DboSource.php(261): Mysql->connect()
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(3169): ConnectionManager::getDataSource('default')
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(1096): Model->setDataSource('default')
+#4 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(3191): Model->setSource('usuarios')
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(1305): Model->getDataSource()
+#6 /var/www/desenvolvimento/financas/src/lib/Cake/View/Helper/FormHelper.php(197): Model->schema()
+#7 /var/www/desenvolvimento/financas/src/lib/Cake/View/Helper/FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#8 /var/www/desenvolvimento/financas/src/app/View/Usuarios/login.ctp(13): FormHelper->create('Usuario', Array)
+#9 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(923): include('/var/www/desenv...')
+#10 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(886): View->_evaluate('/var/www/desenv...', Array)
+#11 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(476): View->_render('/var/www/desenv...')
+#12 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#13 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#14 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#15 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-02-09 20:43:37 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Datasource/DboSource.php(261): Mysql->connect()
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Model/ConnectionManager.php(101): DboSource->__construct(Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(3169): ConnectionManager::getDataSource('default')
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(1096): Model->setDataSource('default')
+#4 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(3191): Model->setSource('usuarios')
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Model.php(1305): Model->getDataSource()
+#6 /var/www/desenvolvimento/financas/src/lib/Cake/View/Helper/FormHelper.php(197): Model->schema()
+#7 /var/www/desenvolvimento/financas/src/lib/Cake/View/Helper/FormHelper.php(444): FormHelper->_introspectModel('Usuario', 'fields')
+#8 /var/www/desenvolvimento/financas/src/app/View/Usuarios/login.ctp(13): FormHelper->create('Usuario', Array)
+#9 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(923): include('/var/www/desenv...')
+#10 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(886): View->_evaluate('/var/www/desenv...', Array)
+#11 /var/www/desenvolvimento/financas/src/lib/Cake/View/View.php(476): View->_render('/var/www/desenv...')
+#12 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#13 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#14 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#15 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-02-09 20:57:00 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 20:57:00 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 20:57:00 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:09 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:10 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:10 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:33 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:33 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:02:33 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:13 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:13 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:13 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:35 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:36 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-09 21:04:36 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

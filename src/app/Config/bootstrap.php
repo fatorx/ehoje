@@ -181,4 +181,4 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-define('EHOJE_VERSION', '1.1.3');
+define('EHOJE_VERSION', '1.1.4');

@@ -17,6 +17,7 @@ class UsuariosController extends AppController {
                 $this->redirect('/despesas/relatorio/');
             }
             
+            $this->set('usuarios', $this->Usuario->find('count'));
             if ( $this->request->is('post') ) {
                 $this->set('erroLogin', 1);
                 if ( $result = $this->Usuario->findByEmail($this->request->data['Usuario']['email']) ) {
@@ -49,6 +50,7 @@ class UsuariosController extends AppController {
   * @return void
   */      
         public function cadastro () {
+            $this->set('usuarios', $this->Usuario->find('count'));
             if ( $this->request->is('post') ) {
                 
                 $this->Usuario->create();

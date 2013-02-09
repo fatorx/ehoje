@@ -23,6 +23,8 @@
             </p>
             <p>
                 <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>&nbsp;
+                <br />
+                Já somos <?php echo number_format($usuarios,0,'','.'); ?> utilizando o Ehoje?!
             </p>
             v<?php echo EHOJE_VERSION ; ?>
         </div><!--loginform-->

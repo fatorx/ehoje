@@ -11,7 +11,7 @@
     </p>
 
     <p>
-        <?php echo $this->Form->input('data', array( 'type' => 'text', 'label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker')); ?>
+        <?php echo $this->Form->input('data', array( 'type' => 'text', 'label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('m/d/Y'))); ?>
     </p>
 
     <p>
