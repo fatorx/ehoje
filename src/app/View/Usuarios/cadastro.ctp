@@ -29,11 +29,7 @@
     </p>
 
     <p>
-        Imagem (seu avatar)&nbsp;&nbsp;
-        <a href="" onclick="javascript: $('#UsuarioAvatar').click();" class="btn btn_archive"><span>Imagem</span></a>
-        <div style="display:none;">
-            <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem (Seu avatar)')); ?>
-        </div>    
+        <?php echo $this->Form->input('avatar', array('type' => 'file', 'label' => 'Imagem (Seu avatar)')); ?>
     </p>
     <br clear="all" />
     <p class="stdformbutton">

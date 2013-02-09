@@ -53,8 +53,7 @@ class UsuariosController extends AppController {
                 
                 $this->Usuario->create();
                 
-                if ( @$this->request->data['Usuario']['avatar'] && @$this->request->data['Usuario']['avatar']['type'] == 'image/png' || @$this->request->data['Usuario']['avatar']['type'] == 'image/jpeg' ) {
-                    
+                if ( @$this->request->data['Usuario']['avatar']['tmp_name'] != '' && @$this->request->data['Usuario']['avatar']['type'] == 'image/png' || @$this->request->data['Usuario']['avatar']['type'] == 'image/jpeg' ) {
                     move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ; 
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     
@@ -65,7 +64,9 @@ class UsuariosController extends AppController {
                     $this->Usuario->data['Usuario']['avatar'] = '';
                     
                 }
-                
+                if (!is_string($this->request->data['Usuario']['avatar'])) {
+                    $this->request->data['Usuario']['avatar'] = null;
+                }
                 if ( $this->Usuario->save($this->request->data) ) {
                     $this->request->data['Usuario']['id'] = $this->Usuario->id;
                     $this->Session->write('user', $this->request->data['Usuario']);
