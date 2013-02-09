@@ -46,7 +46,7 @@ class UsuariosControllerTest extends ControllerTestCase {
         public function testCadastroSemEmail() {
             $inicial = $this->Usuario->find('count');
             
-            $data = array('Usuario' => array('nome' => 'Teste', 'email' => '','senha' => '1234'));
+            $data = array('Usuario' => array('nome' => 'Teste', 'email' => null,'senha' => '1234'));
             
             $this->testAction('usuarios/cadastro', array('method' => 'post', 'data' => $data));
             
