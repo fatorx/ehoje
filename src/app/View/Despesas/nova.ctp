@@ -41,7 +41,7 @@
     </p>
 
     <p>
-        <?php echo $this->Form->input('data', array('label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('m/d/Y'))); ?>
+        <?php echo $this->Form->input('data', array('label' => 'Data <font color="red">*</font>',  'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('d/m/Y'))); ?>
     </p>
 
     <p>

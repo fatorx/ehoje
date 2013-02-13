@@ -7,6 +7,16 @@ App::uses('ReceitasController', 'Controller');
  */
 class ReceitasControllerTest extends ControllerTestCase {
 
+    /**
+ * Fixtures
+ *
+ * @var array
+ *//*
+	public $fixtures = array(
+		'app.usuario',
+                'app.receita'
+	);*/
+    
     public function setUp() {
         parent::setUp();
         $this->Receita = ClassRegistry::init('Receitas');
@@ -37,7 +47,7 @@ class ReceitasControllerTest extends ControllerTestCase {
 	public function testAddNotLoggedIn() {
 		$inicio = $this->Receita->find('count');
 		
-		$data = array('Receita' => array('tipo' => '1', 'data' => date('Y-m-d'), 'valor' => '384.00'));
+		$data = array('Receita' => array('tipo' => '1', 'data' => date('d/m/Y'), 'valor' => '384.00'));
 		$this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
 		
 		$fim = $this->Receita->find('count');
@@ -63,7 +73,7 @@ class ReceitasControllerTest extends ControllerTestCase {
         public function testAddLoggedIn() {
             $inicio = $this->Receita->find('count');
 
-            $data = array('Receita' => array('tipo' => 1, 'data' => date('Y-m-d'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
+            $data = array('Receita' => array('tipo' => 1, 'data' => date('d/m/Y'), 'valor' => '384.00','descricao' => 'Registro adicionado pelo teste'));
             $this->testAction('receitas/nova', array('method' => 'post', 'data' => $data));
 
             $fim = $this->Receita->find('count');
@@ -75,7 +85,10 @@ class ReceitasControllerTest extends ControllerTestCase {
             $user = $this->Usuario->find('first', array('order' => array('id' => 'desc')));
             $user = $user['Usuarios']['id'];
             
-            $this->testAction('/receitas/editar/4', array('method' => 'get'));
+            $receitas = $this->Receita->find('first', array('order' => array('id' => 'desc')));
+            $lastInsert = $receitas['Receitas']['id'];
+            
+            $this->testAction('/receitas/editar/'.$lastInsert, array('method' => 'get'));
 
             $this->assertNotEqual($this->vars, array());
             
