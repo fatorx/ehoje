@@ -51,21 +51,7 @@ class UsuariosController extends AppController {
   * 
   * @return void
   */      
-        public function cadastro ($sendEmail = null) {
-            
-            if ( $sendEmail ) {
-                 $email = new CakeEmail;
-                $email->config('default');
-
-                $email->from(array('noreply@ehoje.net' => 'Ehoje? quanto gastei?'));
-                $email->to('andrecardosodev@gmail.com');
-                $email->subject('Cadastro realizado');
-                $email->message('Obrigado por utilizar o ehoje!');
-                $email->emailFormat('html');
-                $email->send('teste de mensagem');
-            }
-            
-            
+        public function cadastro () {
             $this->set('usuarios', $this->Usuario->find('count'));
             if ( $this->request->is('post') ) {
                 
@@ -86,14 +72,47 @@ class UsuariosController extends AppController {
                     $this->request->data['Usuario']['avatar'] = null;
                 }
                 if ( $this->Usuario->save($this->request->data) ) {
-                    $this->request->data['Usuario']['id'] = $this->Usuario->id;
-                    $this->Session->write('user', $this->request->data['Usuario']);
-                    $this->Session->setFlash('<p>Cadastro realizado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
-                    $this->redirect('/');
+                    if ($this->_sendEmailToUser($this->request->data['Usuario'])) {
+                        $this->request->data['Usuario']['id'] = $this->Usuario->id;
+                        $this->Session->write('user', $this->request->data['Usuario']);
+                        $this->Session->setFlash('<p>Cadastro realizado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                        $this->redirect('/');
+                    } else {
+                        $this->Session->setFlash('<p>:( Seu cadastro foi concluído, mas não conseguimos lhe enviar o email de boas vindas</p>', 'default', array('class' => 'notification msginfo'));
+                        $this->redirect('/');
+                    }
                 } else {
                     $this->Session->setFlash('<p>Não foi possível realizar seu cadastro, por favor tente novamente!</p>', 'default', array('class' => 'notification msgerror'));
                 }
             }
+        }
+        
+        
+        protected function _sendEmailToUser($user) {
+                $email = new CakeEmail;
+                $email->config('default');
+                
+                $email->from(array('noreply@ehoje.net' => 'Ehoje? quanto gastei?'));
+                $email->to($user['email']);
+                $email->subject('Cadastro realizado');
+                $email->message('Obrigado por utilizar o Ehoje?!');
+                $email->emailFormat('html');
+                
+                $content = 'Olá, '.$user['nome'].'! <br /><br />';
+                $content .= 'Seja bem vindo(a) ao Ehoje?! Aqui você poderá controlar suas finanças pessoais de forma simples e prática. <br /><br />';
+                $content .= 'Esperamos que nossa ferramenta seja muito útil à você, se gostar da mesma, por favor indique aos seus conhecidos. Gostaríamos de conquistar cada vez mais usuários ;) .<br /><br />';
+                $content .= '<b>Seus dados de acesso:</b><br />';
+                $content .= 'Endereço de acesso: <a href="http://ehoje.net">http://ehoje.net</a><br />';
+                $content .= 'Login: '.$user['email'].'<br />';
+                $content .= 'Senha: '.$user['senha'].'<br />';
+                $content .= '<br /><br /><br />';
+                $content .= '<font size="2">Mensagem gerada automaticamente, não responda este email.</font>';
+                
+                
+                if ($email->send($content) ) {
+                    return true;
+                }
+                    
         }
        
 }
