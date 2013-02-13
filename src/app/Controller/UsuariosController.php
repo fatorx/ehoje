@@ -58,9 +58,9 @@ class UsuariosController extends AppController {
                 $email->config('default');
 
                 $email->from(array('noreply@ehoje.net' => 'Ehoje? quanto gastei?'));
-                $email->to('andre@redsuns.com.br');
+                $email->to('andrecardosodev@gmail.com');
                 $email->subject('Cadastro realizado');
-                $email->message('Obrigado por utiizar o ehoje!');
+                $email->message('Obrigado por utilizar o ehoje!');
                 $email->emailFormat('html');
                 $email->send('teste de mensagem');
             }
