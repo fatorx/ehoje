@@ -1,5 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
+
 /**
  * Usuarios Controller
  *
@@ -49,7 +51,21 @@ class UsuariosController extends AppController {
   * 
   * @return void
   */      
-        public function cadastro () {
+        public function cadastro ($sendEmail = null) {
+            
+            if ( $sendEmail ) {
+                 $email = new CakeEmail;
+                $email->config('default');
+
+                $email->from(array('noreply@ehoje.net' => 'Ehoje? quanto gastei?'));
+                $email->to('andre@redsuns.com.br');
+                $email->subject('Cadastro realizado');
+                $email->message('Obrigado por utiizar o ehoje!');
+                $email->emailFormat('html');
+                $email->send('teste de mensagem');
+            }
+            
+            
             $this->set('usuarios', $this->Usuario->find('count'));
             if ( $this->request->is('post') ) {
                 
@@ -66,7 +82,7 @@ class UsuariosController extends AppController {
                     $this->Usuario->data['Usuario']['avatar'] = '';
                     
                 }
-                if (!is_string(@$this->request->data['Usuario']['avatar'])) {
+                if (!is_string(@$this->request->data['Usuario']['avatar'])) { 
                     $this->request->data['Usuario']['avatar'] = null;
                 }
                 if ( $this->Usuario->save($this->request->data) ) {

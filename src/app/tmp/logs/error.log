@@ -1528,3 +1528,31 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 2013-02-09 21:04:36 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-02-09 22:03:53 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'financas_test.posts' doesn't exist
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Datasource/DboSource.php(459): PDOStatement->execute(Array)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Datasource/DboSource.php(425): DboSource->_execute('TRUNCATE TABLE ...', Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Model/Datasource/DboSource.php(2041): DboSource->execute('TRUNCATE TABLE ...')
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(278): DboSource->truncate('posts')
+#4 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(233): CakeTestFixture->truncate(Object(Mysql))
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestCase.php(80): CakeFixtureManager->unload(Object(CakeMigrationTest))
+#6 /usr/share/php/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#7 /usr/share/php/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(CakeMigrationTest), Object(PHPUnit_Framework_TestResult))
+#8 /usr/share/php/PHPUnit/Framework/TestSuite.php(705): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#9 /usr/share/php/PHPUnit/TextUI/TestRunner.php(346): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#10 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestRunner.php(59): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#11 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestSuiteCommand.php(113): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#12 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(242): CakeTestSuiteCommand->run(Array)
+#13 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(99): CakeTestSuiteDispatcher->_runTestCase()
+#14 /var/www/desenvolvimento/financas/src/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(116): CakeTestSuiteDispatcher->dispatch()
+#15 /var/www/desenvolvimento/financas/src/app/webroot/test.php(92): CakeTestSuiteDispatcher::run()
+#16 {main}
+2013-02-12 22:47:50 Error: [SocketException] Could not send email.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/MailTransport.php(46): MailTransport->_mail('andre@redsuns.c...', 'Cadastro realiz...', 'teste de mensag...', 'From: =?UTF-8?B...', NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/CakeEmail.php(1059): MailTransport->send(Object(CakeEmail))
+#2 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(59): CakeEmail->send('teste de mensag...')
+#3 [internal function]: UsuariosController->cadastro()
+#4 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#6 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#7 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
