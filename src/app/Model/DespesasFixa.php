@@ -77,7 +77,9 @@ class DespesasFixa extends AppModel {
 			$valor = &$this->data[$this->alias]['valor'];
 
 			if (!empty($valor)) {
-                                $valor = number_format($valor,2,'.',''); 				
+                                $valor = str_replace('.', '', $valor);
+                                $valor = str_replace(',', '.', $valor);
+				$valor = number_format($valor,2,'.',''); 				
 			} else {
 				unset($this->data[$this->alias]['valor']);
 			}

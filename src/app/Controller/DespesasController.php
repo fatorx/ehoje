@@ -68,8 +68,6 @@ class DespesasController extends AppController {
             $this->set('despesasExtras', $this->CategoriasDespesasExtra->find('all'));
         
             if ( $this->request->is('post') && @$this->request->data['Despesa']['valor'] != '' ) {
-                $this->request->data['Despesa']['data'] = date('Y-m-d', strtotime($this->request->data['Despesa']['data']));
-                $this->request->data['Despesa']['valor'] = str_replace( ',', '.', $this->request->data['Despesa']['valor'] );
                 $despesa = explode( ';',$this->request->data['Despesa']['tipo'] );
                 $tipoDespesa = $despesa[0];
                 $idDespesa = $despesa[1];
@@ -98,7 +96,7 @@ class DespesasController extends AppController {
                        $this->request->data['DespesasExtra']['valor'] = $this->request->data['Despesa']['valor'];
                        $this->request->data['DespesasExtra']['id_categoria_despesa_extra'] = $idDespesa;
                        $this->request->data['DespesasExtra']['id_usuario'] = $this->Session->read('user.id');
-
+                       
                        if ( $this->DespesasExtra->save( $this->request->data ) ) {
                            $despesaGravada = true;
                        }

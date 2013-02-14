@@ -72,6 +72,7 @@ class Investimento extends AppModel {
 			if (!empty($valor)) {
                             $valor = str_replace('.', '', $valor);
                             $valor = str_replace(',', '.', $valor);
+                            $valor = number_format($valor,2,'.','');
 			} else {
                             unset($this->data[$this->alias]['valor']);
 			}
