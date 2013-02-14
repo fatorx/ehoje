@@ -69,6 +69,7 @@ class DespesasVariavei extends AppModel {
 			$data = &$this->data[$this->alias]['data'];
 
 			if (!empty($data)) {
+                                $data = str_replace('/', '-', $data);
 				$data = date('Y-m-d', strtotime($data));
 			} else {
 				unset($this->data[$this->alias]['data']);
