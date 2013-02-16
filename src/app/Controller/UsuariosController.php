@@ -199,9 +199,9 @@ class UsuariosController extends AppController {
                 
                 $content = 'Olá, '.$user['nome'].'! <br /><br />';
                 $content .= 'Sua senha de acesso ao Ehoje? foi restaurada através do formuário "Recuperar senha". <br /><br />';
-                $content .= 'Sua nova senha de acesso é: '.$user['senha'].'<br /><br />';
+                $content .= 'Sua nova senha de acesso é: <b>'.$user['senha'].'</b><br /><br />';
                 $content .= 'Esta senha foi gerada automaticamente, caso a mesma não seja de seu gosto, realize o login ';
-                $content .= 'utilizando-a e em seguida acesse clique em "MInha conta", no menu que contém seu avatar e nome.';
+                $content .= 'utilizando-a e em seguida clique em "Minha conta", no menu que contém seu avatar e nome.';
                 $content .= '<br />';
                 $content .= 'Com isso basta alterar sua senha para a que mais lhe agrada.';
                 $content .= '<br /><br /><br />';
