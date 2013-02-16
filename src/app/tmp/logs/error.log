@@ -1754,3 +1754,31 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 #8 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
 #9 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2013-02-15 22:26:27 Error: Fatal Error (1): Call to undefined method UsuariosController::__geraSenha() in [/var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php, line 133]
+2013-02-15 22:26:27 Error: [FatalErrorException] Call to undefined method UsuariosController::__geraSenha()
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/desenv...', 133)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/desenv...', 133, Array)
+#2 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/desenv...', 133, Array)
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-02-15 22:40:43 Error: [SocketException] You need to specify at least one destination for to, cc or bcc.
+#0 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(210): CakeEmail->send('Ol??, ! <br /><...')
+#1 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(138): UsuariosController->_sendEmailToRecoverPassword(Array)
+#2 [internal function]: UsuariosController->recuperarSenha()
+#3 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#4 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#6 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-02-15 22:42:36 Error: [SocketException] Could not send email.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/MailTransport.php(46): MailTransport->_mail('andrecardosodev...', '=?UTF-8?B?UmVjd...', 'Ol??, Andre! <b...', 'From: =?UTF-8?B...', NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/CakeEmail.php(1059): MailTransport->send(Object(CakeEmail))
+#2 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(210): CakeEmail->send('Ol??, Andre! <b...')
+#3 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(138): UsuariosController->_sendEmailToRecoverPassword(Array)
+#4 [internal function]: UsuariosController->recuperarSenha()
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#6 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#8 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}

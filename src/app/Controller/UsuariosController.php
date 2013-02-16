@@ -90,7 +90,10 @@ class UsuariosController extends AppController {
             }
         }
         
-        
+      
+ /**
+  * 
+  */       
         public function minhaConta() {
             $user = $this->Session->read('user');
             if ( $user ) {
@@ -123,6 +126,29 @@ class UsuariosController extends AppController {
         }
         
         
+        public function recuperarSenha() {
+            if ( $this->request->is('post') ) {
+                $user = $this->Usuario->findByEmail($this->request->data['Usuario']['email']);
+                if ( $user ) {
+                    $user['Usuario']['senha'] = Inflector::slug($user['Usuario']['nome'].' '.date('dmy'), '-');
+                    $this->request->data = $user;
+                    
+                    $this->Usuario->create();
+                    if ( $this->Usuario->save($this->request->data) ) {
+                        if ( $this->_sendEmailToRecoverPassword($this->request->data['Usuario']) ) {
+                            $this->Session->setFlash('<p>Sucesso! Foi lhe enviado um email contendo sua nova senha.</p>', 'default', array('class' => 'notification msgsuccess'));
+                        } else {
+                            $this->Session->setFlash('<p>Não foi possível recuperar a sua senha nomemento, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                        }
+                    } else {
+                        $this->Session->setFlash('<p>Não foi possível recuperar a sua senha nomemento, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                    }
+                } else {
+                    throw new NotFoundException('Desculpe mas não localizei nenhum usuário com o email fornecido');
+                }
+            }
+        }
+        
  /**
   * 
   * @param object $user
@@ -153,6 +179,37 @@ class UsuariosController extends AppController {
                     return true;
                 }
                     
+        }
+        
+        
+ /**
+  * 
+  * @param array $user
+  * @return boolean
+  */       
+        protected function _sendEmailToRecoverPassword($user) {
+                $email = new CakeEmail;
+                $email->config('default');
+                
+                $email->from(array('noreply@ehoje.net' => 'Ehoje? quanto gastei?'));
+                $email->to($user['email']);
+                $email->subject('Recuperação de senha');
+                $email->emailFormat('html');
+                
+                $content = 'Olá, '.$user['nome'].'! <br /><br />';
+                $content .= 'Sua senha de acesso ao Ehoje? foi restaurada através do formuário "Recuperar senha". <br /><br />';
+                $content .= 'Sua nova senha de acesso é: '.$user['senha'].'<br /><br />';
+                $content .= 'Esta senha foi gerada automaticamente, caso a mesma não seja de seu gosto, realize o login ';
+                $content .= 'utilizando-a e em seguida acesse clique em "MInha conta", no menu que contém seu avatar e nome.';
+                $content .= '<br />';
+                $content .= 'Com isso basta alterar sua senha para a que mais lhe agrada.';
+                $content .= '<br /><br /><br />';
+                $content .= '<font size="2">Mensagem gerada automaticamente, não responda este email.</font>';
+                
+                
+                if ($email->send($content) ) {
+                    return true;
+                }
         }
        
 }

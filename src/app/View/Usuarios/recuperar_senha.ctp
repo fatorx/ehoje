@@ -1,7 +1,7 @@
 <div class="loginbox radius3">
 	<div class="loginboxinner radius3">
     	<div class="loginheader">
-            <h1 class="bebas">Realize seu login</h1>
+            <h1 class="bebas">Recuperar senha</h1>
             <div class="logo" style="right:115px;top:15px;">
                 <?php echo $this->Html->image('logo-simples.png', array('width' => '150px')); ?>
             </div>
@@ -15,17 +15,8 @@
                 <?php echo $this->Form->input( 'email', array('maxlength' => 255, 'class' => 'radius2') ); ?>
             </p>
             <p>
-                <?php echo $this->Form->input( 'senha', array('maxlength' => 255, 'type' => 'password', 'class' => 'radio2') ); ?>
-            </p>
-            <p>
-                    <button class="radius3 bebas">Entrar</button>
+                    <button class="radius3 bebas">Prosseguir</button>
                     <?php echo $this->Form->end(); ?>
-            </p>
-            <p>
-                <?php echo $this->Html->link('Realizar cadastro', '/usuarios/cadastro'); ?>&nbsp;|&nbsp;
-                <?php echo $this->Html->link('Recuperar senha', '/usuarios/recuperarSenha'); ?>&nbsp;
-                <br />
-                Já somos <?php echo number_format($usuarios,0,'','.'); ?> utilizando o Ehoje?!
             </p>
             v<?php echo EHOJE_VERSION ; ?>
         </div><!--loginform-->
