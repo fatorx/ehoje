@@ -137,6 +137,7 @@ class UsuariosController extends AppController {
                     if ( $this->Usuario->save($this->request->data) ) {
                         if ( $this->_sendEmailToRecoverPassword($this->request->data['Usuario']) ) {
                             $this->Session->setFlash('<p>Sucesso! Foi lhe enviado um email contendo sua nova senha.</p>', 'default', array('class' => 'notification msgsuccess'));
+                            $this->redirect('/');
                         } else {
                             $this->Session->setFlash('<p>Não foi possível recuperar a sua senha nomemento, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
                         }
