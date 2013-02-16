@@ -24,7 +24,10 @@ class UsuariosController extends AppController {
                 $this->set('erroLogin', 1);
                 if ( $result = $this->Usuario->findByEmail($this->request->data['Usuario']['email']) ) {
                     if ( md5($this->request->data['Usuario']['senha']) == $result['Usuario']['senha'] ) {
-                        $dadosUsuario = array('id' => $result['Usuario']['id'], 'nome' => $result['Usuario']['nome'], 'email' => $result['Usuario']['email']);
+                        $dadosUsuario = array(  'id' => $result['Usuario']['id'], 
+                                                'nome' => $result['Usuario']['nome'], 
+                                                'email' => $result['Usuario']['email'],
+                                                'avatar' => $result['Usuario']['avatar']);
                         $this->Session->write('user', $dadosUsuario );
                         $this->set('erroLogin', 0);
                         $this->redirect('/despesas/relatorio/');
@@ -88,6 +91,43 @@ class UsuariosController extends AppController {
         }
         
         
+        public function minhaConta() {
+            $user = $this->Session->read('user');
+            if ( $user ) {
+                if ( $this->request->is('post') || $this->request->is('put') ) {
+                    $this->request->data['Usuario']['id'] = $user['id'];
+                    
+                    $avatar = $this->request->data['Usuario']['avatar'];
+                    $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
+                    if ( $avatar['name'] && $avatar['tmp_name'] ) {
+                        if (!move_uploaded_file($avatar['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ) {
+                            unset($this->request->data['Usuario']['avatar']);
+                        }
+                    }
+                    
+                    $this->Usuario->create();
+                    if ( $this->Usuario->save($this->request->data) ) {
+                        $this->Session->setFlash('<p>Dados alterado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
+                        $this->redirect('/despesas/relatorio/');
+                    } else {
+                        $this->Session->setFlash('<p>Não foi possível alterar os dados, por favor tente novamente.</p>', 'default', array('class' => 'notification msgerror'));
+                        $this->redirect('/usuarios/minhaConta');
+                    }
+                    
+                } else {
+                    $this->request->data = $this->Usuario->read(null, $user['id']);
+                }
+            } else {
+                $this->redirect('/');
+            }
+        }
+        
+        
+ /**
+  * 
+  * @param object $user
+  * @return boolean
+  */       
         protected function _sendEmailToUser($user) {
                 $email = new CakeEmail;
                 $email->config('default');

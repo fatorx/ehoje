@@ -76,7 +76,11 @@ class Usuario extends AppModel {
         public function beforeSave($options = array()) {
 		if (isset($this->data[$this->alias]['senha'])) {
 			$senha = &$this->data[$this->alias]['senha'];
-                        $senha = md5($senha);
+                        if (strlen($senha) > 3) {
+                            $senha = md5($senha);
+                        } else {
+                            unset($this->data[$this->alias]['senha']);
+                        }
 		} 
                 
 		return parent::beforeSave($options);
