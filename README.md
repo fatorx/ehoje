@@ -43,6 +43,10 @@ Instalação
     Basta começar marcar suas despesas e receitas e acompanhar sua evolução.
     O sistema não possui manual porque é autoexplicativo. Muito fácil de usar!
 
+    
+### Online!
+Para utilizar este sistema sem intalar em seu computador basta acessar http://ehoje.net 
+
 
 
 Suporte
@@ -65,8 +69,7 @@ MÓDULOS/FUNCIONALIDADES A SEREM CRIADAS
   
 * Agendamentos de pagamentos de conta
 * Envio de email de lembrete de contas agendadas
-* Configurações do sistema
-* Meus dados (edição da conta do usuário)
+* Possibilitar informar tipo de despesa/receita/investimento manualmente
 
 
 ------------------------------------------------------------------------------------------------
