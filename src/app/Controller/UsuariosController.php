@@ -79,15 +79,15 @@ class UsuariosController extends AppController {
                     $this->request->data['Usuario']['avatar'] = null;
                 }
                 if ( $this->Usuario->save($this->request->data) ) {
-                    /*if ($this->_sendEmailToUser($this->request->data['Usuario'])) { */
+                    if ($this->_sendEmailToUser($this->request->data['Usuario'])) {
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
                         $this->Session->write('user', $this->request->data['Usuario']);
                         $this->Session->setFlash('<p>Cadastro realizado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
                         $this->redirect('/');
-//                    } else {
-//                        $this->Session->setFlash('<p>:( Seu cadastro foi concluído, mas não conseguimos lhe enviar o email de boas vindas</p>', 'default', array('class' => 'notification msginfo'));
-//                        $this->redirect('/');
-//                    }
+                    } else {
+                        $this->Session->setFlash('<p>:( Seu cadastro foi concluído, mas não conseguimos lhe enviar o email de boas vindas</p>', 'default', array('class' => 'notification msginfo'));
+                        $this->redirect('/');
+                    }
                 } else {
                     $this->Session->setFlash('<p>Não foi possível realizar seu cadastro, por favor tente novamente!</p>', 'default', array('class' => 'notification msgerror'));
                 }
