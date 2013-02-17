@@ -1782,3 +1782,14 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 161
 #7 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
 #8 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #9 {main}
+2013-02-17 01:13:30 Error: [SocketException] Could not send email.
+#0 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/MailTransport.php(46): MailTransport->_mail('teste@teste.com...', 'Cadastro realiz...', 'Ol??, Usu??rio ...', 'From: =?UTF-8?B...', NULL)
+#1 /var/www/desenvolvimento/financas/src/lib/Cake/Network/Email/CakeEmail.php(1059): MailTransport->send(Object(CakeEmail))
+#2 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(184): CakeEmail->send('Ol??, Usu??rio ...')
+#3 /var/www/desenvolvimento/financas/src/app/Controller/UsuariosController.php(81): UsuariosController->_sendEmailToUser(Array)
+#4 [internal function]: UsuariosController->cadastro()
+#5 /var/www/desenvolvimento/financas/src/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(UsuariosController), Array)
+#6 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/desenvolvimento/financas/src/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#8 /var/www/desenvolvimento/financas/src/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}

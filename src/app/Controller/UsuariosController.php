@@ -61,7 +61,11 @@ class UsuariosController extends AppController {
                 $this->Usuario->create();
                 
                 if ( @$this->request->data['Usuario']['avatar']['tmp_name'] != '' && @$this->request->data['Usuario']['avatar']['type'] == 'image/png' || @$this->request->data['Usuario']['avatar']['type'] == 'image/jpeg' ) {
-                    move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ; 
+                    
+                    move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['avatar']['name']);
+                    exec('convert \'img/users/'.$this->request->data['Usuario']['avatar']['name'].'\' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
+                    unlink('img/users/'.$this->request->data['Usuario']['avatar']['name']);
+
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     
                 } else if ( @$this->request->data['Usuario']['avatar']['type'] != 'image/png' && @$this->request->data['Usuario']['avatar']['type'] != 'image/jpeg' ){
@@ -75,15 +79,15 @@ class UsuariosController extends AppController {
                     $this->request->data['Usuario']['avatar'] = null;
                 }
                 if ( $this->Usuario->save($this->request->data) ) {
-                    if ($this->_sendEmailToUser($this->request->data['Usuario'])) {
+                    /*if ($this->_sendEmailToUser($this->request->data['Usuario'])) { */
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
                         $this->Session->write('user', $this->request->data['Usuario']);
                         $this->Session->setFlash('<p>Cadastro realizado com sucesso!</p>', 'default', array('class' => 'notification msgsuccess'));
                         $this->redirect('/');
-                    } else {
-                        $this->Session->setFlash('<p>:( Seu cadastro foi concluído, mas não conseguimos lhe enviar o email de boas vindas</p>', 'default', array('class' => 'notification msginfo'));
-                        $this->redirect('/');
-                    }
+//                    } else {
+//                        $this->Session->setFlash('<p>:( Seu cadastro foi concluído, mas não conseguimos lhe enviar o email de boas vindas</p>', 'default', array('class' => 'notification msginfo'));
+//                        $this->redirect('/');
+//                    }
                 } else {
                     $this->Session->setFlash('<p>Não foi possível realizar seu cadastro, por favor tente novamente!</p>', 'default', array('class' => 'notification msgerror'));
                 }
@@ -103,8 +107,11 @@ class UsuariosController extends AppController {
                     $avatar = $this->request->data['Usuario']['avatar'];
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     if ( $avatar['name'] && $avatar['tmp_name'] ) {
-                        if (!move_uploaded_file($avatar['tmp_name'], 'img/users/'.$this->request->data['Usuario']['nome'].'.jpg') ) {
+                        if (!move_uploaded_file($avatar['tmp_name'], 'img/users/'.$avatar['name']) ) {
                             unset($this->request->data['Usuario']['avatar']);
+                        } else {
+                            exec('convert img/users/'.$avatar['name'].' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
+                            unlink('img/users/'.$this->request->data['Usuario']['avatar']['name']);
                         }
                     }
                     
