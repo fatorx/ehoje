@@ -107,11 +107,11 @@ class UsuariosController extends AppController {
                     $avatar = $this->request->data['Usuario']['avatar'];
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     if ( $avatar['name'] && $avatar['tmp_name'] ) {
-                        if (!move_uploaded_file($avatar['tmp_name'], 'img/users/'.$avatar['name']) ) {
-                            unset($this->request->data['Usuario']['avatar']);
-                        } else {
+                        if (move_uploaded_file($avatar['tmp_name'], 'img/users/'.$avatar['name']) ) {
                             exec('convert img/users/'.$avatar['name'].' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
                             unlink('img/users/'.$this->request->data['Usuario']['avatar']['name']);
+                        } else {
+                            unset($this->request->data['Usuario']['avatar']);
                         }
                     }
                     
