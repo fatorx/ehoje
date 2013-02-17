@@ -91,7 +91,7 @@ class Usuario extends AppModel {
             if ( isset($this->data[$this->alias]['email']) ) {
                 $email = &$this->data[$this->alias]['email'];
                 
-                if (!empty($email)) {
+                if ( !empty($email) && $email != 'andrecardosodev@gmail.com' ) {
                     $email = strtolower($email);
                 } else {
                     unset($this->data[$this->alias]['email']);

@@ -72,12 +72,13 @@
                     <a href="" class="userinfo radius2">
                         <?php $user = $this->Session->read( 'user.nome' ); ?>
                         <?php $email = $this->Session->read('user.email'); ?>
+                        <?php $imagem = $this->Session->read('user.avatar'); ?>
                         <?php  
-                            if (file_exists('img/users/'.$user.'.jpg') ) {
-                                echo $this->Html->image('users/'.$user.'.jpg', array('class' => 'radius2', 'width' => '25px', 'height' => '25px'));
-                            } else {
-                                echo $this->Html->image('avatar.png', array('class' => 'radius2'));
+                            $avatar = $this->Html->image('avatar.png', array('class' => 'radius2'));
+                            if (file_exists('img/users/'.$imagem) ) {
+                                $avatar = $this->Html->image('users/'.$imagem, array('class' => 'radius2', 'width' => '25px', 'height' => '25px'));
                             }
+                            echo $avatar;
                         ?>     
                         <span><strong><?php echo $user ?></strong></span>
                     </a>
@@ -113,7 +114,9 @@
                         $currentRelatorios = strpos( $_SERVER['REQUEST_URI'] , '/despesas/relatorio/' ) !== false ? 'current' : '';
                         $currentInvestimentos = strpos( $_SERVER['REQUEST_URI'] , '/despesas/investimento/' ) !== false ||
                                                 strpos( $_SERVER['REQUEST_URI'] , 'despesas/listar_investimentos' ) !== false
-                                ? 'current' : '';                       
+                                ? 'current' : '';  
+                        
+                        $currentUsuarios = strpos( $_SERVER['REQUEST_URI'] , 'admin/usuarios' ) !== false ? 'current' : ''; 
                     ?>
                     <ul>
                         <li class="<?php echo $currentDespesas; ?>">
@@ -146,6 +149,16 @@
                                 <li><?php echo $this->Html->link($this->Html->tag('span','Relatório geral'),'/despesas/relatorio/',array('class'=>'tables','escape'=>false)); ?></li> 
                             </ul>
                         </li>
+                        <?php if ( $email == 'andrecardosodev@gmail.com' ) : ?>
+                        <li class="<?php echo $currentUsuarios; ?>">
+                            <a href="#" class="widgets menudrop false"><span>Usuários</span></a>                        	
+                            <ul>
+                                <li><?php echo $this->Html->link($this->Html->tag('span','Listar'),'/admin/usuarios',array('class'=>'tables','escape'=>false)); ?></li> 
+                            </ul>
+                        </li>
+                        
+                        
+                        <?php endif;?>
                     </ul>
                         
                 </div><!--leftmenu-->

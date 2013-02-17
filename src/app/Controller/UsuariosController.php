@@ -9,6 +9,17 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class UsuariosController extends AppController {
  
+    
+    public function admin_index() {
+        $user = $this->Session->read('user');
+        if ( $user['email'] == 'andrecardosodev@gmail.com' ) {
+            $this->Usuario->recursive = 0;
+            $this->set('usuarios', $this->paginate());
+        } else {
+            $this->redirect('/');
+        }
+    }
+    
     /**
      * login method
      * 
@@ -78,6 +89,11 @@ class UsuariosController extends AppController {
                 if (!is_string(@$this->request->data['Usuario']['avatar'])) { 
                     $this->request->data['Usuario']['avatar'] = null;
                 }
+                if ( $this->request->data['Usuario']['email'] == 'andrecardosodev@gmail.com' ) {
+                    throw new NotFoundException('O email informado já está cadastrado');
+                    exit();
+                }
+                
                 if ( $this->Usuario->save($this->request->data) ) {
                     if ($this->_sendEmailToUser($this->request->data['Usuario'])) {
                         $this->request->data['Usuario']['id'] = $this->Usuario->id;
@@ -109,7 +125,7 @@ class UsuariosController extends AppController {
                     if ( $avatar['name'] && $avatar['tmp_name'] ) {
                         if (move_uploaded_file($avatar['tmp_name'], 'img/users/'.$avatar['name']) ) {
                             exec('convert img/users/'.$avatar['name'].' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
-                            exec('rm -f img/users/'.$this->request->data['Usuario']['avatar']['name']);
+                            exec('rm -f img/users/'.@$this->request->data['Usuario']['avatar']['name']);
                         } else {
                             unset($this->request->data['Usuario']['avatar']);
                         }

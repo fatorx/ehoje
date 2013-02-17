@@ -1,46 +1,54 @@
-<div class="usuarios index">
-	<h2><?php echo __('Usuarios'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('nome'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th><?php echo $this->Paginator->sort('senha'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php
+<div class="contenttitle radiusbottom0">
+        <h2 class="table"><span>Listando Usuários cadastrados</span></h2>
+</div><!--contenttitle-->
+<table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+    <thead>
+        <tr>
+            <th class="head1"><?php echo $this->Paginator->sort('id'); ?></th>
+            <th class="head0"><?php echo $this->Paginator->sort('nome'); ?></th>
+            <th class="head1">Avatar</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th class="head1"><?php echo $this->Paginator->sort('id'); ?></th>
+            <th class="head0"><?php echo $this->Paginator->sort('nome'); ?></th>
+            <th class="head1">Avatar</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        <?php
 	foreach ($usuarios as $usuario): ?>
 	<tr>
 		<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['email']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['senha']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $usuario['Usuario']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $usuario['Usuario']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $usuario['Usuario']['id']), null, __('Are you sure you want to delete # %s?', $usuario['Usuario']['id'])); ?>
-		</td>
+		<td><?php
+                    $imagem = $usuario['Usuario']['avatar'];
+                    $avatar = $this->Html->image('avatar.png', array('class' => 'radius2'));
+                            if (file_exists('img/users/'.$imagem) ) {
+                                $avatar = $this->Html->image('users/'.$imagem, array('class' => 'radius2', 'width' => '48px'));
+                            }
+                            echo $avatar;
+                    ?>        
+                </td>
 	</tr>
 <?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
+    </tbody>
+</table>    
 
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
+<p>
+    <?php
+        echo $this->Paginator->counter(array(
+        'format' => __('Página {:page} de {:pages}, exibindo {:current} de {:count} usuários, iniciando em {:start}, finalizando em {:end}')
+        ));
+    ?>	
+</p>
+
+<div class="paging">
+<?php
+        echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
+        echo $this->Paginator->numbers(array('separator' => ''));
+        echo $this->Paginator->next(__('próxima') . ' >', array(), null, array('class' => 'next disabled'));
+?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('action' => 'add')); ?></li>
-	</ul>
-</div>
+

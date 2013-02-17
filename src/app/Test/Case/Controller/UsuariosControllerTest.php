@@ -72,9 +72,23 @@ class UsuariosControllerTest extends ControllerTestCase {
             
             $this->assertEqual($final, $inicial + 1);
         }
+        
+        
+        public function testMinhaConta(){
+            $usuario = $this->Usuario->find('first', array('order' => array('id' => 'desc')));
+            $idUsuario = $usuario['Usuarios']['id'];
+            $nomeAntigo = $usuario['Usuarios']['nome'];
+            
+            $data = array('Usuario' => array('email' => 'alterado@teste.com.br', 'nome' => 'andre', 'senha' => 'andre', 'avatar' => array('name' => 'teste.jpg', 'tmp_name' => 'tmp/e4232e23kj'), 'id' => $idUsuario));
+            
+            $this->testAction('/usuarios/minhaConta', array('data' => $data,'method' => 'post'));
+            
+            $novosDados = $this->Usuario->read(null, $idUsuario);
+            $novoNome = $novosDados['Usuarios']['nome'];
+            
+            $this->assertNotEqual('andre', $nomeAntigo);
+        }
 
-        
-        
  /**
   * 
   */       
@@ -82,5 +96,11 @@ class UsuariosControllerTest extends ControllerTestCase {
             $this->testAction('usuarios/logout');
             $this->assertEqual($this->controller->view, 'logout');
 	}
+        
+        
+        public function testRecuperarSenha() {
+            $data = array('Usuario' => array('email' => 'alterado@teste.com.br'));
+            $result = $this->testAction('/usuarios/recuperarSenha', array('data' => $data, 'method' => 'post'));
+        }
 
 }
