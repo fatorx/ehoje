@@ -6,6 +6,7 @@
         <tr>
             <th class="head1"><?php echo $this->Paginator->sort('id'); ?></th>
             <th class="head0"><?php echo $this->Paginator->sort('nome'); ?></th>
+            <th class="head0"><?php echo $this->Paginator->sort('email'); ?></th>
             <th class="head1">Avatar</th>
         </tr>
     </thead>
@@ -13,6 +14,7 @@
         <tr>
             <th class="head1"><?php echo $this->Paginator->sort('id'); ?></th>
             <th class="head0"><?php echo $this->Paginator->sort('nome'); ?></th>
+            <th class="head0"><?php echo $this->Paginator->sort('email'); ?></th>
             <th class="head1">Avatar</th>
         </tr>
     </tfoot>
@@ -22,6 +24,7 @@
 	<tr>
 		<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
+                <td><?php echo h($usuario['Usuario']['email']); ?>&nbsp;</td>
 		<td><?php
                     $imagem = $usuario['Usuario']['avatar'];
                     $avatar = $this->Html->image('avatar.png', array('class' => 'radius2'));
