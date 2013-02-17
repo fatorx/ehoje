@@ -64,7 +64,7 @@ class UsuariosController extends AppController {
                     
                     move_uploaded_file($this->request->data['Usuario']['avatar']['tmp_name'], 'img/users/'.$this->request->data['Usuario']['avatar']['name']);
                     exec('convert \'img/users/'.$this->request->data['Usuario']['avatar']['name'].'\' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
-                    unlink('img/users/'.$this->request->data['Usuario']['avatar']['name']);
+                    exec('rm -f img/users/'.$this->request->data['Usuario']['avatar']['name']);
 
                     $this->request->data['Usuario']['avatar'] = $this->request->data['Usuario']['nome'].'.jpg';
                     
@@ -109,7 +109,7 @@ class UsuariosController extends AppController {
                     if ( $avatar['name'] && $avatar['tmp_name'] ) {
                         if (move_uploaded_file($avatar['tmp_name'], 'img/users/'.$avatar['name']) ) {
                             exec('convert img/users/'.$avatar['name'].' -resize 128 img/users/'.$this->request->data['Usuario']['nome'].'.jpg');
-                            unlink('img/users/'.$this->request->data['Usuario']['avatar']['name']);
+                            exec('rm -f img/users/'.$this->request->data['Usuario']['avatar']['name']);
                         } else {
                             unset($this->request->data['Usuario']['avatar']);
                         }
