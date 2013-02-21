@@ -17,7 +17,7 @@
     </p>
 
     <p>
-        <?php echo $this->Form->input('email', array('maxlength' => 255, 'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('email', array('maxlength' => 255, 'class' => 'smallinput', 'type' => 'email')); ?>
     </p>
 
     <p>

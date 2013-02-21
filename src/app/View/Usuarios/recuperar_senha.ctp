@@ -12,7 +12,7 @@
             <div class="loginerror" <?php if ( @$erroLogin ) echo "style='display:block;'"; ?>><p>Dados de login inválidos, por favor verifique!</p></div>
             <?php echo $this->Form->create('Usuario', array('id' => 'login')); ?>
             <p>
-                <?php echo $this->Form->input( 'email', array('maxlength' => 255, 'class' => 'radius2') ); ?>
+                <?php echo $this->Form->input( 'email', array('maxlength' => 255, 'class' => 'radius2', 'type' => 'email') ); ?>
             </p>
             <p>
                     <button class="radius3 bebas">Prosseguir</button>
