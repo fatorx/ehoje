@@ -11,6 +11,7 @@ class Cron {
     
     public static function task() {
         try{
+            mail('andrecardosodev@gmail.com','cron Ehoje', 'Executou o cron');
             // redimensionando todas as imagens
             exec('mogrify -resize 128 *.jpg');
             exec('mogrify -resize 128 *.png');
