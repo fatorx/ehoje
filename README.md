@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 SFP - Sistema de Finanças Pessoais
 =======
 
@@ -82,3 +83,9 @@ MÓDULOS/FUNCIONALIDADES A SEREM CRIADAS
   Atenciosamente Andre Cardoso.
   
   
+=======
+ehoje
+=====
+
+repositório para o desenvolvimento do sistema ehoje
+>>>>>>> c9ae219517e7e0f0eb7cad124dc6704b00b19b22
