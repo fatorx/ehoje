@@ -232,8 +232,6 @@ class DespesasController extends AppController {
             if ( $this->request->is('post') && @$this->request->data['Investimento']['valor'] != '' ) {
                 $this->request->data['Investimento']['id_categoria_investimento'] = $this->request->data['Investimento']['tipo'];
                 $this->request->data['Investimento']['id_usuario'] = $this->Session->read('user.id');
-                $this->request->data['Investimento']['valor'] = str_replace(',', '.', $this->request->data['Investimento']['valor']);
-                $this->request->data['Investimento']['data'] = date('Y-m-d', strtotime($this->request->data['Investimento']['data']));
                 
                 $this->Investimento->create();
                 if ( $this->Investimento->save( $this->request->data ) ) {
