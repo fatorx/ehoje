@@ -60,6 +60,7 @@ class DespesasController extends AppController {
                 $mesAtual = $Functions->obter_nome_mes(date('m') );
             }
             
+           die(print_r($this->obter_despesa($mes, 'array')));
             $this->set('proporcao',$this->obter_despesa($mes, 'array'));
             $this->set('mesAtual', $mesAtual);
         } else {
@@ -360,6 +361,8 @@ class DespesasController extends AppController {
         if ( $despesasFixas != null ) {
             $valorFinal += $despesasFixas;
             $arrayFinal[] = $despesasFixas;
+        } else {
+            $arrayFinal[] = '';
         }
         
         $despesasVariaveis = $this->DespesasVariavei->query("select sum(Despesa.valor) as total from despesas_variaveis Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
@@ -367,6 +370,8 @@ class DespesasController extends AppController {
         if ( $despesasVariaveis != null ) {
             $valorFinal += $despesasVariaveis;
             $arrayFinal[] = $despesasVariaveis;
+        } else {
+            $arrayFinal[] = '';
         }
         
         $despesasExtras = $this->DespesasExtra->query("select sum(Despesa.valor) as total from despesas_extras Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
@@ -374,6 +379,8 @@ class DespesasController extends AppController {
         if ( $despesasExtras != null ) {
             $valorFinal += $despesasExtras;
             $arrayFinal[] = $despesasExtras;
+        } else {
+            $arrayFinal[] = '';
         }
         
         $investimentos = $this->Investimento->query("select sum(Despesa.valor) as total from investimentos Despesa where Despesa.data between '$dataInicial' and '$dataFinal' and id_usuario='".$this->Session->read('user.id')."'");
@@ -381,6 +388,8 @@ class DespesasController extends AppController {
         if ( $investimentos != null ) {
             $valorFinal += $investimentos;
             $arrayFinal[] = $investimentos;
+        } else {
+            $arrayFinal[] = '';
         }
         
         if ( $tipo == 'total' ) {
