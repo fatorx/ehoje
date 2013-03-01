@@ -55,7 +55,7 @@ class Investimento extends AppModel {
 		),
 	);
         
-        public function beforeSave($options = array()) {
+        public function beforeValidate($options = array()) {
 		if (isset($this->data[$this->alias]['data'])) {
 			$data = &$this->data[$this->alias]['data'];
 
@@ -65,16 +65,16 @@ class Investimento extends AppModel {
 			} else {
 				unset($this->data[$this->alias]['data']);
 			}
-		}                    
+		}                   
                 if (isset($this->data[$this->alias]['valor'])) {
 			$valor = &$this->data[$this->alias]['valor'];
 
 			if (!empty($valor)) {
-                            $valor = str_replace('.', '', $valor);
-                            $valor = str_replace(',', '.', $valor);
-                            $valor = number_format($valor,2,'.','');
+                                $valor = str_replace('.', '', $valor);
+                                $valor = str_replace(',', '.', $valor);
+				$valor = number_format($valor,2,'.','');
 			} else {
-                            unset($this->data[$this->alias]['valor']);
+				unset($this->data[$this->alias]['valor']);
 			}
 		}
                 if (isset($this->data[$this->alias]['tipo'])) {
@@ -88,6 +88,6 @@ class Investimento extends AppModel {
 			}
 		}
                 
-		return parent::beforeSave($options);
+		return parent::beforeValidate($options);
 	}
 }

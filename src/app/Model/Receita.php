@@ -34,7 +34,7 @@ class Receita extends AppModel {
 		),
 	);
         
-        public function beforeSave($options = array()) {
+        public function beforeValidate($options = array()) {
 		if (isset($this->data[$this->alias]['data'])) {
 			$data = &$this->data[$this->alias]['data'];
 
@@ -65,6 +65,6 @@ class Receita extends AppModel {
 			}
 		}
                 
-		return parent::beforeSave($options);
+		return parent::beforeValidate($options);
 	}
 }
