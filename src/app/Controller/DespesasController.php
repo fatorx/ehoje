@@ -60,7 +60,6 @@ class DespesasController extends AppController {
                 $mesAtual = $Functions->obter_nome_mes(date('m') );
             }
             
-           die(print_r($this->obter_despesa($mes, 'array')));
             $this->set('proporcao',$this->obter_despesa($mes, 'array'));
             $this->set('mesAtual', $mesAtual);
         } else {
