@@ -49,12 +49,19 @@ class DespesasController extends AppController {
             $this->set('novembro', array('receita' => $this->obter_receita('11'), 'despesa' => $this->obter_despesa('11','total') ));
             $this->set('dezembro', array('receita' => $this->obter_receita('12'), 'despesa' => $this->obter_despesa('12','total') ));
 
-            $this->set('proporcao',$this->obter_despesa(date('m'), 'array'));
-            
             App::import('controller','functions');
             $Functions = new FunctionsController;
             
-            $this->set('mesAtual', $Functions->obter_nome_mes(date('m') ));
+            if ( $this->request->is('post') ) {
+                $mes = $this->request->data['Despesa']['mes'];
+                $mesAtual = $Functions->obter_nome_mes($this->request->data['Despesa']['mes']);
+            } else {
+                $mes = date('m');
+                $mesAtual = $Functions->obter_nome_mes(date('m') );
+            }
+            
+            $this->set('proporcao',$this->obter_despesa($mes, 'array'));
+            $this->set('mesAtual', $mesAtual);
         } else {
             $this->redirect('/');
         }
