@@ -3,9 +3,8 @@
 </div><!--contenttitle-->
  
 <?php echo $this->Form->create('Despesa'); ?>
-<table cellpadding="0" cellspacing="0" border="0" id="table1" class="stdtable stdtablecb">
-<div class="tableoptions">
     <?php 
+        echo '<br />Mês base&nbsp;&nbsp;';
         $options = array(
             '01' => 'Janeiro', '02' => 'Fevereiro', '03' => 'Março', 
             '04' => 'Abril', '05' => 'Maio', '06' => 'Junho', 
@@ -14,10 +13,10 @@
             );
         echo $this->Form->input('mes', array('type' => 'select', 'options' => $options, 'default' => date('m'), 'label' => false, 'class' => 'radius3', 'div' => false)); 
         echo '&nbsp;&nbsp;';
-        echo $this->Form->end(array('label' => 'Consultar', 'value' => 'Consultar', 'div' => false, 'class' => 'stdbtn btn_black')); 
     ?>
-</div>
-</table>    
+    <div style="display: none;">
+        <?php echo $this->Form->end(array('label' => 'Consultar', 'value' => 'Consultar', 'div' => false, 'id' => 'submitMonth'));  ?>
+    </div>
 <?php 
     /*
      * 0 fixas
@@ -110,3 +109,9 @@
 <div id="chart_div_vendas" style="width: 1024px; height: 300px;"></div>                 
     
 <br /><br /><br /><br />
+
+<script>
+    $("#DespesaMes").change(function(){
+       $("#submitMonth").click();
+    });
+</script>
