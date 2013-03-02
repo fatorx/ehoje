@@ -1,7 +1,18 @@
+<?php
+    $classNotification = 'msginfo';
+    if ( $saldo <= 0 ) {
+       $classNotification = 'msgerror'; 
+    } 
+?>
+<div class="notification <?php echo $classNotification; ?>">
+    <a class="close"></a>
+    <p style="font-size: 20px;">Saldo atual: R$ <?php echo number_format(($saldo/100),2,',','.'); ?></p>
+</div><!-- notification msginfo -->
+
 <div class="contenttitle">
     <h2 class="chart"><span>Proporcao de gastos</span></h2>
 </div><!--contenttitle-->
- 
+
 <?php echo $this->Form->create('Despesa'); ?>
     <?php 
         echo '<br />Mês base&nbsp;&nbsp;';
@@ -65,11 +76,7 @@
 
 </script>
         
-<div id="chart_div_pie" style="width: 900px; height: 300px;"></div>
-    
-<br /><br /><br /><br />
-
-
+<div id="chart_div_pie" style="width: 900px; height: 250px;"></div>
 
 <div class="contenttitle">
     <h2 class="chart"><span>Receitas x Despesas</span></h2>
@@ -106,7 +113,7 @@
     }
 </script>
         
-<div id="chart_div_vendas" style="width: 1024px; height: 300px;"></div>                 
+<div id="chart_div_vendas" style="width: 980px; height: 500px;"></div>                 
     
 <br /><br /><br /><br />
 

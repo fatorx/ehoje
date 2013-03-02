@@ -60,8 +60,22 @@ class DespesasController extends AppController {
                 $mesAtual = $Functions->obter_nome_mes(date('m') );
             }
             
-            $this->set('proporcao',$this->obter_despesa($mes, 'array'));
-            $this->set('mesAtual', $mesAtual);
+            $despesas = $this->obter_despesa(date('m'), 'array');
+            $receitas = $this->obter_receita(date('m')) * 100;
+            
+            $despesaFixa = $despesas[0] * 100;
+            $despesaVariavel = $despesas[1] * 100;
+            $despesaExtra = $despesas[2] * 100;
+            $investimentos = $despesas[3] * 100;
+            
+            $saldo = $receitas - $despesaFixa;
+            $saldo = $saldo - $despesaVariavel;
+            $saldo = $saldo - $despesaExtra;
+            $saldo = $saldo - $investimentos;
+            
+            $proporcao = $this->obter_despesa($mes, 'array');
+            
+            $this->set(compact('proporcao', 'mesAtual', 'saldo'));
         } else {
             $this->redirect('/');
         }
