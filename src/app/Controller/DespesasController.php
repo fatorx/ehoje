@@ -126,10 +126,10 @@ class DespesasController extends AppController {
                 
                 if ( $despesaGravada ) {
                     $this->Session->setFlash('<p>Despesa contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess'));
-                    $this->redirect('/');
+                    $this->redirect('/despesas/nova');
                 } else {
                     $this->Session->setFlash('<p>Não foi possível contabilizar a despesa, por favor tente novamente.</p>', 'default', array( 'class' => 'notification msgerror' ));
-                    $this->redirect('/');
+                    $this->redirect('/despesas/nova');
                 }
             }
         } else {
@@ -236,7 +236,7 @@ class DespesasController extends AppController {
                 $this->Investimento->create();
                 if ( $this->Investimento->save( $this->request->data ) ) {
                     $this->Session->setFlash('<p>Investimento cadastrado com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess' ));
-                    $this->redirect('/');
+                    $this->redirect('/despesas/investimento');
                 } else {
                     $this->Session->setFlash('<p>Não foi possível gravar o investimento, por favor tente novamente.</p>', 'default', array( 'class' => 'notification msgerror' ));
                 }

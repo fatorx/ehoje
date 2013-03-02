@@ -1,5 +1,6 @@
+<?php echo $this->Html->link('Visualizar gastos','/despesas/relatorio'); ?>
 <div class="contenttitle">
-    <h2 class="form"><span>Informe os dados abaixo</span></h2>
+    <h2 class="form"><span>Informe os dados da receita</span></h2>
 </div><!--contenttitle-->
                     
 <br />

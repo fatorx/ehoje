@@ -24,7 +24,7 @@ class ReceitasController extends AppController {
 
 			if ($this->Receita->save($this->request->data)) {
 				$this->Session->setFlash('<p>Receita contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess' ));
-                                $this->redirect('/');
+                                $this->redirect('/receitas/nova');
 			} else {
 				$this->Session->setFlash('<p>Não foi possível gravar sua receita, por favor tente novamente!</p>', 'default', array( 'class' => 'notification msgerror' ));
 			}

@@ -1,3 +1,4 @@
+<?php echo $this->Html->link('Visualizar gastos','/despesas/relatorio'); ?>
 <div class="contenttitle">
     <h2 class="form"><span>Informe os dados do investimento</span></h2>
 </div><!--contenttitle-->
@@ -7,15 +8,15 @@
 <?php echo $this->Form->create('Investimento', array('class' => 'stdform')); ?>
 
     <p>
-        <?php echo $this->Form->input('tipo', array('type' => 'select', 'options' => $investimentos, 'label' => 'Tipo de invesitmento <font color="red">*</font>')); ?>
+        <?php echo $this->Form->input('tipo', array('type' => 'select', 'options' => $investimentos, 'label' => 'Tipo de invesitmento')); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('data', array('label' => 'Data <font color="red">*</font>', 'type' => 'text', 'class' => 'smallinput', 'id' => 'datepicker')); ?>
+        <?php echo $this->Form->input('data', array('label' => 'Data', 'type' => 'text', 'class' => 'smallinput', 'id' => 'datepicker', 'value' => date('d/m/Y'))); ?>
     </p>
 
     <p>
-        <?php echo $this->Form->input('valor', array('label' => 'Valor <font color="red">*</font>', 'type' => 'text',  'class' => 'smallinput')); ?>
+        <?php echo $this->Form->input('valor', array('label' => 'Valor', 'type' => 'text',  'class' => 'smallinput')); ?>
     </p>
     
     <p>
