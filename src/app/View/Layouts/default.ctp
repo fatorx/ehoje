@@ -47,9 +47,7 @@
 	<!-- START OF HEADER -->
 	<div class="header radius3">
     	<div class="headerinner">
-            <a href="">
-                <?php echo $this->Html->image('logo-header.png'); ?> 
-            </a>
+            <?php echo $this->Html->image('logo-header.png', array('url' => '/')); ?> 
             &nbsp; v<?php echo EHOJE_VERSION ; ?>
             <div class="headright">
             
