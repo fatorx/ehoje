@@ -5,6 +5,6 @@
     <?php echo $this->Html->link('Realize seu login', '/usuarios/login', array('style' => 'color: white;')); ?>
     &nbsp;|&nbsp;
     <?php echo $this->Html->link('Faça seu cadastro', '/usuarios/cadastro', array('style' => 'color: white;')); ?>
-    
-
+    <br /><br /><br />
+    <span style="color: white;">Já somos <?php echo number_format($usuarios,0,'','.'); ?> utilizando o Ehoje?!</span>
 </center>

@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Usuario');
 
 /**
  * Displays a view
@@ -52,6 +52,8 @@ class PagesController extends AppController {
  * @return void
  */
 	public function display() {
+                $this->set('usuarios', $this->Usuario->find('count'));
+            
 		$path = func_get_args();
 
 		$count = count($path);
