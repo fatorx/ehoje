@@ -86,12 +86,21 @@ class DespesasController extends AppController {
         if ( $this->Session->read('user') ) {
             $this->set('despesasFixas', $this->CategoriasDespesasFixa->find('all'));
             $this->set('despesasVariaveis', $this->CategoriasDespesasVariavei->find('all'));
-            $this->set('despesasExtras', $this->CategoriasDespesasExtra->find('all'));
+            $this->set('despesasExtras', $this->CategoriasDespesasExtra->find('all', array('conditions' => array('id NOT' => '999'))));
         
             if ( $this->request->is('post') && @$this->request->data['Despesa']['valor'] != '' ) {
-                $despesa = explode( ';',$this->request->data['Despesa']['tipo'] );
-                $tipoDespesa = $despesa[0];
-                $idDespesa = $despesa[1];
+                
+                $despesa = @explode( ';',$this->request->data['Despesa']['tipo'] );
+                
+                if ( count($despesa) > 2 ) {
+                    $tipoDespesa = $despesa[0];
+                    $idDespesa = $despesa[1];
+                } else {
+                    $tipoDespesa = 'e';
+                    $idDespesa = '999';
+                    $this->request->data['Despesa']['descricao'] = 'Tipo de despesa: "'.$this->request->data['Despesa']['tipo'].'" '.$this->request->data['Despesa']['descricao'];
+                }
+                
                 $despesaGravada = false;
                 
                 switch ($tipoDespesa) {
@@ -140,10 +149,10 @@ class DespesasController extends AppController {
                 
                 if ( $despesaGravada ) {
                     $this->Session->setFlash('<p>Despesa contabilizada com sucesso!</p>', 'default', array( 'class' => 'notification msgsuccess'));
-                    $this->redirect('/despesas/nova');
+                    $this->redirect('/despesas/nova/');
                 } else {
                     $this->Session->setFlash('<p>Não foi possível contabilizar a despesa, por favor tente novamente.</p>', 'default', array( 'class' => 'notification msgerror' ));
-                    $this->redirect('/despesas/nova');
+                    $this->redirect('/despesas/nova/');
                 }
             }
         } else {
@@ -187,7 +196,7 @@ class DespesasController extends AppController {
                 $idDespesa = $despesa[1];
                 
                 $saveSuccess = false;
-                debug($this->request->data);
+                
                 switch($tipoDespesa) {
                     case 'f':
                         $this->request->data['DespesasFixa'] = $this->request->data['Despesa'];

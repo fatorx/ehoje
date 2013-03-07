@@ -9,11 +9,11 @@
 
     <p>
         <label>Tipo de despesa <font color="red">*</font></label>
-        <span class="smallinput">
+        <span class="smallinput tipoDespesa">
 
             <select name="data[Despesa][tipo]">
                 <option value="">Selecione uma opção</option>
-                <optgroup label="DESPESAS FIXAS">
+                <optgroup label="DESPESAS COM VALORES FIXOS">
                     <?php 
                         if ( @$despesasFixas ) {
                             foreach ( $despesasFixas as $despesasFixas ) {
@@ -21,7 +21,7 @@
                             }
                         } ?>
                 </optgroup>
-                <optgroup label="DESPESAS VARIÁVEIS">
+                <optgroup label="DESPESAS COM VALORES VARIÁVEIS">
                     <?php 
                         if ( @$despesasVariaveis ) {
                             foreach ( $despesasVariaveis as $despesasVariaveis ) {
@@ -36,8 +36,12 @@
                                 echo "<option value='e;".$despesasExtras['CategoriasDespesasExtra']['id']."'>" . $despesasExtras['CategoriasDespesasExtra']['nome'] . "</option>";
                             }
                         }?>
-                </optgroup>
+                </optgroup>                    
             </select>
+            <br />
+            <label>&nbsp;</label>
+            <input type="checkbox" class="manual">
+            &nbsp;Não encontrei o tipo de despesa que desejo registrar
         </span>
     </p>
 
@@ -73,4 +77,10 @@ function formataPreco(obj) {
     
     obj.value = preco;  
 }
+
+
+$(".manual").click(function(){
+   content = "<input type='text' name='data[Despesa][tipo]' placeholder='Digite o tipo da despesa' class='smallinput'/>"; 
+   $(".tipoDespesa").html(content);
+});
 </script>
