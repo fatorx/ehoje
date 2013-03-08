@@ -92,7 +92,7 @@ class DespesasController extends AppController {
                 
                 $despesa = @explode( ';',$this->request->data['Despesa']['tipo'] );
                 
-                if ( count($despesa) > 2 ) {
+                if ( count($despesa) == 2 ) {
                     $tipoDespesa = $despesa[0];
                     $idDespesa = $despesa[1];
                 } else {
