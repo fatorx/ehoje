@@ -32,5 +32,17 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('Session', 'RequestHandler');
+    public $components = array('Session', 'Auth', 'Acl');
+    
+    public function beforeFilter() {
+        
+        $this->Auth->authorize = array('Actions' => array('actionPath' => 'controllers/'));
+        
+        $this->Auth->authenticate = array('Blowfish');
+        $this->Auth->authError = 'Você não tem permissão de acesso à esta área.';
+        
+        
+        
+        parent::beforeFilter();
+    }
 }
