@@ -181,8 +181,10 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
+/**
 App::uses('Security', 'Utility');
 Security::setHash('blowfish');
+**/
 
 define('EHOJE_VERSION', '1.5.1');
 
