@@ -1,5 +1,5 @@
-<div class="notification msgerror">Atenção: Devido a não obtenção da meta de usuários este serviço sairá do ar até o fim do mês de Novembro/2013.
-<br />Agradecemos aos que acreditaram na ideia mas infelizmente estamos sem viabilidade de continuar com o projeto. :(</div>
+<div class="notification msgerror"><p>Atenção: Devido a não obtenção da meta de usuários este serviço sairá do ar até o fim do mês de Novembro/2013.
+<br />Agradecemos aos que acreditaram na ideia mas infelizmente estamos sem viabilidade de continuar com o projeto. :(</p></div>
 <br /><br />
 <center>
     <iframe src="http://prezi.com/embed/nmijselsosz6/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=no&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined" width="550" height="400" frameBorder="0"></iframe>
