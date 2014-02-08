@@ -7,8 +7,19 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'masterkey',
-		'database' => 'mileniumformat',
+		'password' => 'root',
+		'database' => 'ehoje',
+		'prefix' => '',
+		'encoding' => 'utf8',
+	);
+        
+        public $develop = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => 'root',
+		'database' => 'ehoje_develop',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
