@@ -5,12 +5,21 @@ App::uses('AppController', 'Controller');
  * 
  */
 class DespesasController extends AppController {
+    
 
     var $uses = array(  'DespesasFixa', 'Receita',  'DespesasVariavei', 
                         'DespesasExtra', 'CategoriasDespesasFixa', 'CategoriasDespesasVariavei', 
                         'CategoriasDespesasExtra', 'Investimento', 'CategoriasInvestimento');
     
     
+    public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+                $this->DespesasFixa->setDataSource('develop');
+                $this->DespesasVariavei->setDataSource('develop');
+                $this->DespesasExtra->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
     
     public function listar() {
         $user = $this->Session->read('user');

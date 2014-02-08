@@ -10,6 +10,13 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
  
     
+    public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+               $this->Usuario->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
+    
     public function admin_index() {
         $user = $this->Session->read('user');
         if ( $user['email'] == 'andrecardosodev@gmail.com' ) {

@@ -44,6 +44,13 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array('Usuario');
+        
+        public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+               $this->Usuario->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
 
 /**
  * Displays a view

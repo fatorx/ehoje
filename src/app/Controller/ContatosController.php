@@ -10,6 +10,13 @@ App::uses('CakeEmail', 'Network/Email');
 class ContatosController extends AppController {
 
     
+    public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+               $this->Contato->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
+    
     /**
  * add method
  *

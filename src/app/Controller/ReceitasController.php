@@ -9,6 +9,14 @@ class ReceitasController extends AppController {
 
     
     var $uses = array('Receita', 'CategoriasReceita');
+    
+    
+    public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+               $this->Receita->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
 
 /**
  * nova method

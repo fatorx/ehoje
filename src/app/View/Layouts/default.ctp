@@ -43,6 +43,15 @@
 <?php        
 } ?>
         
+        <?php if ( 2 == Configure::read('debug') ) : ?>
+            <div class="notification msgerror">
+                <p>
+                    Atenção, você está utilizando o modo desenvolvimento, as informações aqui gravadas 
+                    não serão válidas na aplicação final.
+                </p>
+            </div>
+        <?php endif; ?>
+        
         <?php if ( $this->Session->read('user') ) { ?>
 	<!-- START OF HEADER -->
 	<div class="header radius3">

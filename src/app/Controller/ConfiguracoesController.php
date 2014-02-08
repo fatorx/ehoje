@@ -8,6 +8,18 @@ class ConfiguracoesController extends AppController {
 
     var $uses = array('Receita', 'Usuario', 'Investimento', 'DespesasFixa', 'DespesasVariavei', 'DespesasExtra');
     
+    public function beforeFilter() {
+            if ( 2 == Configure::read('debug') ) {
+               $this->Receita->setDataSource('develop');
+               $this->Usuario->setDataSource('develop');
+               $this->Investimento->setDataSource('develop');
+               $this->DespesasFixa->setDataSource('develop');
+               $this->DespesasVariavei->setDataSource('develop');
+               $this->DespesasExtra->setDataSource('develop');
+            }
+           parent::beforeFilter();
+    }
+    
     public function index () {
         $this->set( 'receitas', $this->obter_tipos_receitas() );
         $this->set( 'investimentos', $this->obter_tipos_investimentos() );
