@@ -1,3 +1,6 @@
 fabfile.py
 fabfile.pyc
 !empty
+/src/app/tmp
+/src/app/Config/database.php
+/src/app/Config/core.php

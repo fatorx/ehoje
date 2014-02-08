@@ -29,30 +29,24 @@
         <?php echo $this->Form->end(array('label' => 'Consultar', 'value' => 'Consultar', 'div' => false, 'id' => 'submitMonth'));  ?>
     </div>
 <?php 
-    /*
-     * 0 fixas
-     * 1 Variaveis
-     * 2 extras
-     * 3 investimentos
-     * 
-     */
+    
 
-    $pieContent = "['Proporção de gastos', 0],";
+    $pieContent = "['Proporção de gastos', ''],";
 
-    if ( @$proporcao['0'] ) {
-        $pieContent .= "['Despesas fixas', ".$proporcao['0']."],";
+    if ( @$proporcao[FIXA] ) {
+        $pieContent .= "['".Configure::read('TiposDespesas.fixa')."', ".$proporcao['0']."],";
     } 
 
-    if ( @$proporcao['1'] ) {
-        $pieContent .= "['Despesas variáveis', ".$proporcao['1']."],";
+    if ( @$proporcao[VARIAVEL] ) {
+        $pieContent .= "['".Configure::read('TiposDespesas.variavel')."', ".$proporcao['1']."],";
     }
 
-    if ( @$proporcao['2'] ) {
-        $pieContent .= "['Despesas extras', ".$proporcao['2']."],";
+    if ( @$proporcao[EXTRA] ) {
+        $pieContent .= "['".Configure::read('TiposDespesas.extra')."', ".$proporcao['2']."],";
     }
 
-    if ( @$proporcao['3'] ) {
-        $pieContent .= "['Investimentos', ".$proporcao['3']."],";
+    if ( @$proporcao[INVESTIMENTO] ) {
+        $pieContent .= "['".Configure::read('TiposDespesas.investimento')."', ".$proporcao['3']."],";
     }
 
 ?>

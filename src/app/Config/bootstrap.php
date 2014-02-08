@@ -181,6 +181,18 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
+Configure::write('TiposDespesas', array(
+    'fixa' => 'Despesas fixas (que possuem o mesmo valor todos os meses)',
+    'variavel' => 'Despesas variáveis (que estão presentes praticamente todos os meses mas os valores podem variar)',
+    'extra' => 'Despesas extras (que são incomuns, ocorrem somente em certas ocasiões)',
+    'investimento' => 'Investimentos (O quanto você poupa ou investe para seu futuro)'
+));
+
+define('FIXA', 0);
+define('VARIAVEL', 1);
+define('EXTRA', 2);
+define('INVESTIMENTO', 3);
+
 /**
 App::uses('Security', 'Utility');
 Security::setHash('blowfish');
