@@ -7,9 +7,11 @@
  * 
  * @author andre
  */
-class Cron {
+class Cron 
+{
     
-    public static function task() {
+    public static function task() 
+    {
         try{
             mail('andrecardosodev@gmail.com','cron Ehoje', 'Executou o cron');
             // redimensionando todas as imagens
@@ -23,5 +25,3 @@ class Cron {
 }
 
 Cron::task();
-
-?>
